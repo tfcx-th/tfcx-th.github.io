@@ -80,12 +80,12 @@
 
 
 <meta property="og:type" content="website">
-<meta property="og:title">
+<meta property="og:title" content="tfcx-blog">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name">
+<meta property="og:site_name" content="tfcx-blog">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title">
+<meta name="twitter:title" content="tfcx-blog">
 
 
 
@@ -121,7 +121,7 @@
 
 
 
-  <title></title>
+  <title>tfcx-blog</title>
   
 
 
@@ -152,7 +152,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title"></span>
+        <span class="site-title">tfcx-blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -278,7 +278,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content>
+      <meta itemprop="name" content="tfcx-blog">
     </span>
 
     
@@ -340,162 +340,16 @@
       
         
           
-            <h1 id="JavaScript严格模式"><a href="#JavaScript严格模式" class="headerlink" title="JavaScript严格模式"></a>JavaScript严格模式</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>严格模式是采用具有限制性JavaScript变体的一种方式，从而使代码显示地 脱离“马虎模式/稀松模式/懒散模式“（sloppy）模式。</p>
-<p>严格模式是一个受限制的子集：它的产生是为了形成与正常代码不同的语义。<br>不支持严格模式与支持严格模式的浏览器在执行严格模式代码时会采用不同行为。所以在没有对运行环境展开特性测试来验证对于严格模式相关方面支持的情况下，就算采用了严格模式也不一定会取得预期效果。严格模式代码和非严格模式代码可以共存，因此项目脚本可以渐进式地采用严格模式。</p>
-<p>严格模式对正常的JavaScript语义做了一些更改。</p>
-<ul>
-<li>严格模式会使引起静默失败(silently fail，即不报错也没有任何效果)的赋值操抛出异常；</li>
-<li>严格模式修复了一些导致 JavaScript引擎难以执行优化的缺陷：有时候，相同的代码，严格模式可以比非严格模式下运行得更快；</li>
-<li>严格模式禁用了在ECMAScript的未来版本中可能会定义的一些语法。</li>
-</ul>
-<h2 id="进入标志"><a href="#进入标志" class="headerlink" title="进入标志"></a>进入标志</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br></pre></td></tr></table></figure>
-<p>老版本的浏览器会把它当作一行普通字符串，加以忽略。</p>
-<h2 id="调用"><a href="#调用" class="headerlink" title="调用"></a>调用</h2><ul>
-<li><p>针对整个脚本文件    </p>
-<ul>
-<li><p>将”use strict”放在脚本文件的第一行，则整个脚本都将以”严格模式”运行。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"><span class="comment">// doSomething;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>如果这行语句不在第一行，则无效，整个脚本以”正常模式”运行。如果不同模式的代码文件合并成一个文件，这一点需要特别注意。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">1</span>；</span><br><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line">i = <span class="number">1</span>；</span><br><span class="line"><span class="built_in">console</span>.log(i);    <span class="comment">// 输出为1，未进入严格模式</span></span><br><span class="line">-------------------</span><br><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line">i = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">console</span>.log(i);    <span class="comment">// Uncaught ReferenceError</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>严格地说，只要前面不是产生实际运行结果的语句，’use strict’可以不在第一行，比如直接跟在一个空的分号后面。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'a = 1;'</span></span><br><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line">i = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">console</span>.log(i);     <span class="comment">// Uncaught ReferenceError</span></span><br><span class="line">--------------------</span><br><span class="line"><span class="string">'a = 1;'</span></span><br><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"><span class="keyword">var</span> i = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">console</span>.log(i);     <span class="comment">// 输出为1，严格模式</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>针对单个函数</p>
-<p>将”use strict”放在函数体的第一行，则整个函数以”严格模式”运行。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">strict</span>(<span class="params"></span>)</span>&#123;        <span class="comment">// 严格模式</span></span><br><span class="line"><span class="meta">  'use strict'</span>;</span><br><span class="line">  <span class="comment">// doSomething</span></span><br><span class="line">  <span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br><span class="line">------------------------</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">notStrict</span>(<span class="params"></span>) </span>&#123;    <span class="comment">// 正常模式</span></span><br><span class="line">  <span class="comment">// doSomething</span></span><br><span class="line">  <span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>脚本文件的变通写法</p>
-<p>因为第一种调用方法不利于文件合并，所以更好的做法是，借用第二种方法，将整个脚本文件放在一个立即执行的匿名函数之中。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="meta">  'use strict'</span>;</span><br><span class="line">  <span class="comment">// doSomething</span></span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="语法和行为改变"><a href="#语法和行为改变" class="headerlink" title="语法和行为改变"></a>语法和行为改变</h2><ul>
-<li><p>全局变量显式声明</p>
-<p>  在正常模式中，如果一个变量没有声明就赋值，默认是全局变量。严格模式禁止这种用法，全局变量必须显式声明。</p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line">a = <span class="number">1</span>;                       <span class="comment">// error，v=a未声明</span></span><br><span class="line"><span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;    <span class="comment">// error，i未声明</span></span><br><span class="line">  <span class="comment">// doSomething</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>  如果给一个未声明的变量、函数、函数参数、catch从句参数或全局对象的属性赋值，将会抛出一个引用错误异常。在非严格模式中，这种隐式声明的全局变量的方法是给全局对象新添加一个新属性。</p>
-</li>
-<li><p>静态绑定</p>
-<p>Javascript语言的一个特点，就是允许”动态绑定”，即某些属性和方法到底属于哪一个对象，不是在编译时确定的，而是在运行时确定的。</p>
-<p>严格模式对动态绑定做了一些限制。某些情况下，只允许静态绑定。也就是说，属性和方法到底归属哪个对象，在编译阶段就确定。这样做有利于编译效率的提高，也使得代码更容易阅读，更少出现意外。</p>
-<ul>
-<li><p>禁止使用<code>with</code>语句</p>
-<p>  <code>with</code>所引起的问题是块内的任何名称可以映射（map）到<code>with</code>传进来的对象的属性，也可以映射到包围这个块的作用域内的变量（甚至是全局变量），这一切都是在运行时决定的，在代码运行之前是无法得知的。</p>
-<p>  严格模式下，使用 <code>with</code> 会引起语法错误，所以就不会存在 <code>with</code> 块内的变量在运行是才决定引用到哪里的情况了</p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">a</span>: <span class="number">1</span>&#125;;</span><br><span class="line"><span class="keyword">with</span> (obj) &#123; </span><br><span class="line">  a = <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(obj.a);        <span class="comment">// Uncaught SyntaxError</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>一种取代<code>with</code>的简单方法是，将目标对象赋给一个短命名变量，然后访问这个变量上的相应属性。</p>
-</blockquote>
-</li>
-<li><p>创设eval作用域</p>
-<p>正常模式下，Javascript语言有两种变量作用域：全局作用域和函数作用域。严格模式创设了第三种作用域：eval作用域。</p>
-<p>正常模式下，eval语句的作用域，取决于它处于全局作用域，还是处于函数作用域。严格模式下，eval语句本身就是一个作用域，传入<code>eval()</code>的代码不能在调用程序所在的上下文中声明变量或定义函数，而在非严格模式中是可以这样做的；相反，变量和函数的定义是在<code>eval()</code>创建的新作用域中，这个作用域在<code>eval()</code>返回时就弃用了。</p>
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"><span class="keyword">var</span> i = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">eval</span>(<span class="string">"var i = 2;console.log(i);"</span>);    <span class="comment">// =&gt; 2</span></span><br><span class="line"><span class="built_in">console</span>.log(i);                      <span class="comment">// =&gt; 1</span></span><br><span class="line">-----------------------------------</span><br><span class="line"><span class="keyword">var</span> i = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">eval</span>(<span class="string">"var i = 2;console.log(i);"</span>);    <span class="comment">// =&gt; 2</span></span><br><span class="line"><span class="built_in">console</span>.log(i);                      <span class="comment">// =&gt; 2</span></span><br></pre></td></tr></table></figure>
-<p>相应的，如果函数<code>eval</code>被在严格模式下的eval(…)以表达式的形式调用时，其代码会被当做严格模式下的代码执行。当然也可以在代码中显式开启严格模式，但这样做并不是必须的</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">strict1</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line"><span class="meta">  'use strict'</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">eval</span>(str); <span class="comment">// str中的代码在严格模式下运行</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">strict2</span>(<span class="params">f, str</span>) </span>&#123;</span><br><span class="line"><span class="meta">  "use strict"</span>;</span><br><span class="line">  <span class="keyword">return</span> f(str); <span class="comment">// 没有直接调用eval(...): 当且仅当str中的代码开启了严格模式时才会在严格模式下运行</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">nonstrict</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">eval</span>(str); <span class="comment">// 当且仅当str中的代码开启了"use strict"，str中的代码才会在严格模式下运行</span></span><br><span class="line">&#125;</span><br><span class="line">strict1(<span class="string">"'Strict mode code!'"</span>);</span><br><span class="line">strict1(<span class="string">"'use strict'; 'Strict mode code!'"</span>);</span><br><span class="line">strict2(<span class="built_in">eval</span>, <span class="string">"'Non-strict code.'"</span>);</span><br><span class="line">strict2(<span class="built_in">eval</span>, <span class="string">"'use strict'; 'Strict mode code!'"</span>);</span><br><span class="line">nonstrict(<span class="string">"'Non-strict code.'"</span>);</span><br><span class="line">nonstrict(<span class="string">"'use strict'; 'Strict mode code!'"</span>);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>增强的安全措施</p>
-<ul>
-<li><p>禁止this关键字指向全局对象</p>
-<p>在严格模式中，调用的函数（不是方法）中的一个this值是undefined；在非严格模式中，调用的函数中的this值总是指向全局变量。</p>
-<p>可以根据这种特性判断JavaScript实现是否支持严格模式</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> hasStrictMode = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="meta">  'use strict'</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span> === <span class="literal">undefined</span>;</span><br><span class="line">&#125;());</span><br><span class="line"><span class="built_in">console</span>.log(hasStrictMode);            <span class="comment">// =&gt; true</span></span><br><span class="line">-----------------------------------</span><br><span class="line"><span class="keyword">var</span> hasStrictMode = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span> === <span class="literal">undefined</span>;</span><br><span class="line">&#125;());</span><br><span class="line"><span class="built_in">console</span>.log(hasStrictMode);            <span class="comment">// =&gt; false</span></span><br></pre></td></tr></table></figure>
-<p>使用构造函数时，如果忘了加new，this不再指向全局对象，而是报错。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.a = <span class="number">1</span>;</span><br><span class="line">&#125;());</span><br><span class="line"><span class="built_in">console</span>.log(a);                        <span class="comment">// =&gt; 1</span></span><br><span class="line">-----------------------</span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="meta">  'use strict'</span>;</span><br><span class="line">  <span class="keyword">this</span>.a = <span class="number">1</span>;</span><br><span class="line">&#125;());</span><br><span class="line"><span class="built_in">console</span>.log(a);                        <span class="comment">// =&gt; error</span></span><br><span class="line">-----------------------</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="meta">  'use strict'</span>;</span><br><span class="line">  <span class="keyword">this</span>.a = <span class="number">1</span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">new</span> f().a);                <span class="comment">// =&gt; 1</span></span><br></pre></td></tr></table></figure>
-<p>在严格模式中，通过<code>call()</code>或<code>apply()</code>来调用函数时，其中的this值就是通过<code>call()</code>或<code>apply()</code>传入的第一个参数；在非严格模式中，null和undefined值被全局对象和转换为对象的非对象值所替代。</p>
-</li>
-<li><p>禁止在函数内部遍历调用栈</p>
-<p>在严格模式的函数中，<code>arguments.caller</code>和<code>arguments.callee</code>都会抛出一个类型异常错误。</p>
-<p>严格模式的函数同样具有<code>caller</code>和<code>arguments</code>属性，当访问这两个属性时将抛出类型错误异常。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="meta">  'use strict'</span>;</span><br><span class="line">  f1.caller;                <span class="comment">// error</span></span><br><span class="line">  f1.arguments;             <span class="comment">// error</span></span><br><span class="line">&#125;</span><br><span class="line">f1();</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>禁止删除变量</p>
-<p>严格模式下，当<code>delete</code>运算符无法删除变量</p>
-<p>只有<code>configurable</code>设置为true的对象属性，才能被删除，试图删除不可配置的属性将抛出一个类型错误异常；在非严格模式中，返回false。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"><span class="keyword">var</span> x;</span><br><span class="line"><span class="comment">// delete x;                  -&gt; 语法错误</span></span><br><span class="line"><span class="keyword">var</span> obj = <span class="built_in">Object</span>.create(<span class="literal">null</span>, &#123;<span class="string">'x'</span>: &#123;</span><br><span class="line">  value: <span class="number">1</span>,　　　</span><br><span class="line">  configurable: <span class="literal">true</span></span><br><span class="line">&#125;&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(obj.x);             <span class="comment">// =&gt; 1</span></span><br><span class="line"><span class="keyword">delete</span> obj.x;</span><br><span class="line"><span class="built_in">console</span>.log(obj.x);             <span class="comment">// =&gt; undefined</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>显式报错</p>
-<ul>
-<li><p>正常模式下，对一个对象的只读属性进行赋值，不会报错，只会默默地失败。严格模式下，将抛出一个类型错误异常。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(obj, <span class="string">'v'</span>, &#123; <span class="attr">value</span>: <span class="number">1</span>, <span class="attr">writable</span>: <span class="literal">false</span> &#125;);</span><br><span class="line">obj.v = <span class="number">2</span>; </span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  Uncaught TypeError: Cannot assign to read only property 'v'    of object '#&lt;Object&gt;'</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>严格模式下，对一个使用getter方法读取的属性进行赋值，会报错。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  <span class="keyword">get</span> v() &#123; </span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>; </span><br><span class="line">&#125;&#125;;</span><br><span class="line">obj.v = <span class="number">2</span>;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  Uncaught TypeError: Cannot set property v of #&lt;Object&gt; which has only a getter</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>严格模式下，对禁止扩展的对象添加新属性，会抛出类型错误异常。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line"><span class="built_in">Object</span>.preventExtensions(obj);</span><br><span class="line">obj.v = <span class="number">1</span>;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  Uncaught TypeError: Cannot add property v, object is not extensible</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>严格模式下，删除一个不可删除的属性，会抛出类型错误异常。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"><span class="keyword">delete</span> <span class="built_in">Object</span>.prototype;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  Uncaught TypeError: Cannot delete property 'prototype' of function Object() &#123; [native code] &#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>重名错误</p>
-<ul>
-<li><p>(?)对象不能有重名的属性</p>
-<p>正常模式下，如果对象有多个重名属性，最后赋值的那个属性会覆盖前面的值。严格模式下，这属于语法错误。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"><span class="keyword">var</span> o = &#123;</span><br><span class="line">  p: <span class="number">1</span>,</span><br><span class="line">  p: <span class="number">2</span></span><br><span class="line">&#125;;                    <span class="comment">// error</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>！！！！这个问题在ECMAScript6中已经不复存在，Chrome(72.0.3626.121)和Safari(12.0.3)均不报错</p>
-</blockquote>
-</li>
-<li><p>函数不能有重名的参数</p>
-<p>正常模式下，如果函数有多个重名的参数，可以用arguments[i]读取。严格模式下，这属于语法错误。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">a, a, b</span>) </span>&#123; <span class="comment">// 语法错误</span></span><br><span class="line">  <span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  Uncaught SyntaxError: Duplicate parameter name not allowed in this context</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>禁止八进制表示法</p>
-<p>正常模式下，整数的第一位如果是0，表示这是八进制数，比如0100等于十进制的64。严格模式禁止这种表示法，整数第一位为0，将报错。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"><span class="keyword">var</span> n = <span class="number">0100</span>;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  Uncaught SyntaxError: Octal literals are not allowed in strict mode.</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>arguments对象的限制</p>
-<ul>
-<li><p>arguments 不能通过程序语法被绑定(be bound)或赋值</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  Uncaught SyntaxError: Unexpected eval or arguments in strict mode</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="built_in">arguments</span>++;</span><br><span class="line">--------------------------------</span><br><span class="line"><span class="keyword">var</span> obj = &#123; <span class="keyword">set</span> p(arguments) &#123;</span><br><span class="line">  <span class="comment">// code</span></span><br><span class="line">&#125;&#125;;</span><br><span class="line">--------------------------------</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="comment">// code</span></span><br><span class="line">&#125; <span class="keyword">catch</span>(<span class="built_in">arguments</span>) &#123; </span><br><span class="line">  <span class="comment">// code</span></span><br><span class="line">&#125;</span><br><span class="line">--------------------------------</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">arguments</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// code</span></span><br><span class="line">&#125;</span><br><span class="line">--------------------------------</span><br><span class="line"><span class="keyword">var</span> f = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">"arguments"</span>, <span class="string">"'use strict'; return 17;"</span>);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>arguments不再追踪参数的变化</p>
-<p>严格模式下，参数的值不会随<code>arguments</code>对象的值的改变而变化。</p>
-<p>在正常模式下，对于第一个参数是<code>arg</code>的函数，对<code>arg</code>赋值时会同时赋值给<code>arguments[0]</code>，反之亦然（除非没有参数，或者<code>arguments[0]</code> 被删除）。</p>
-<p>严格模式下，函数的<code>arguments</code>对象会保存函数被调用时的原始参数。<code>arguments[i]</code>的值不会随与之相应的参数的值的改变而变化，同名参数的值也不会随与之相应的<code>arguments[i]</code>的值的改变而变化。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">  a = <span class="number">2</span>;</span><br><span class="line">  <span class="keyword">return</span> [a, <span class="built_in">arguments</span>[<span class="number">0</span>]];</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(f(<span class="number">1</span>));               <span class="comment">// =&gt; [2,2]</span></span><br><span class="line">-----------------------------------------------</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line"><span class="meta">  'use strict'</span>;</span><br><span class="line">  a = <span class="number">2</span>;</span><br><span class="line">  <span class="keyword">return</span> [a, <span class="built_in">arguments</span>[<span class="number">0</span>]];</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(f(<span class="number">1</span>));               <span class="comment">// =&gt; [2,1]</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>禁止使用<code>arguments.callee</code></p>
-<p>正常模式下，<code>arguments.callee</code> 指向当前正在执行的函数；在严格模式下，<code>arguments.callee</code> 是一个不可删除属性，而且赋值和读取时都会抛出异常</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">arguments</span>.callee;</span><br><span class="line">&#125;;</span><br><span class="line">f();</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  Uncaught TypeError: 'caller', 'callee', and 'arguments' properties may not be accessed on strict mode functions or the arguments objects for calls to them</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>(?)严格模式禁止了不在脚本或者函数层面上的函数声明</p>
-<p>将来Javascript的新版本会引入”块级作用域”。为了与新版本接轨，严格模式只允许在全局作用域或函数作用域的顶层声明函数。也就是说，不允许在非函数的代码块内声明函数。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;　　</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// code</span></span><br><span class="line">  &#125;                                  <span class="comment">// error</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// code</span></span><br><span class="line">&#125;&#125;;                                  <span class="comment">// error</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>！！！！这个问题在ECMAScript6中已经不复存在，Chrome(72.0.3626.121)和Safari(12.0.3)均不报错</p>
-</blockquote>
-</li>
-</ul>
-<h2 id="保留字"><a href="#保留字" class="headerlink" title="保留字"></a>保留字</h2><ul>
-<li><p>在正常模式中合法，严格模式中是保留字</p>
-<blockquote>
-<p><code>implements</code>&nbsp;&nbsp;&nbsp;&nbsp;<code>let</code>&nbsp;&nbsp;&nbsp;&nbsp;<code>private</code>&nbsp;&nbsp;&nbsp;&nbsp;<code>public</code>&nbsp;&nbsp;&nbsp;&nbsp;<code>yield</code><br><code>interface</code>&nbsp;&nbsp;&nbsp;&nbsp;<code>package</code>&nbsp;&nbsp;&nbsp;&nbsp;<code>protected</code>&nbsp;&nbsp;&nbsp;&nbsp;<code>static</code></p>
-</blockquote>
-</li>
-<li><p>严格限制，并不完全是保留字，但不能用作变量名、函数名和参数名</p>
-<blockquote>
-<p><code>arguments</code>&nbsp;&nbsp;&nbsp;&nbsp;<code>eval</code></p>
-</blockquote>
-</li>
-</ul>
-
-          
+          JavaScript严格模式概述严格模式是采用具有限制性JavaScript变体的一种方式，从而使代码显示地 脱离“马虎模式/稀松模式/懒散模式“（sloppy）模式。
+严格模式是一个受限制的子集：它的产生是为了形成与正常代码不同的语义。不支持严格模式与支持严格模式的浏览器在执行严格模式代码时会采用
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/23/JavaScriptStrictMode/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
