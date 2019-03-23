@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="JavaScript,">
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="JavaScript严格模式概述严格模式是采用具有限制性JavaScript变体的一种方式，从而使代码显示地 脱离“马虎模式/稀松模式/懒散模式“（sloppy）模式。 严格模式是一个受限制的子集：它的产生是为了形成与正常代码不同的语义。不支持严格模式与支持严格模式的浏览器在执行严格模式代码时会采用不同行为。所以在没有对运行环境展开特性测试来验证对于严格模式相关方面支持的情况下，就算采用了严格模式">
+<meta name="description" content="概述严格模式是采用具有限制性JavaScript变体的一种方式，从而使代码显示地 脱离“马虎模式/稀松模式/懒散模式“（sloppy）模式。 严格模式是一个受限制的子集：它的产生是为了形成与正常代码不同的语义。不支持严格模式与支持严格模式的浏览器在执行严格模式代码时会采用不同行为。所以在没有对运行环境展开特性测试来验证对于严格模式相关方面支持的情况下，就算采用了严格模式也不一定会取得预期效果。严格">
+<meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript严格模式">
 <meta property="og:url" content="http://yoursite.com/2019/03/23/JavaScriptStrictMode/index.html">
 <meta property="og:site_name" content="天赋创新的blog">
-<meta property="og:description" content="JavaScript严格模式概述严格模式是采用具有限制性JavaScript变体的一种方式，从而使代码显示地 脱离“马虎模式/稀松模式/懒散模式“（sloppy）模式。 严格模式是一个受限制的子集：它的产生是为了形成与正常代码不同的语义。不支持严格模式与支持严格模式的浏览器在执行严格模式代码时会采用不同行为。所以在没有对运行环境展开特性测试来验证对于严格模式相关方面支持的情况下，就算采用了严格模式">
+<meta property="og:description" content="概述严格模式是采用具有限制性JavaScript变体的一种方式，从而使代码显示地 脱离“马虎模式/稀松模式/懒散模式“（sloppy）模式。 严格模式是一个受限制的子集：它的产生是为了形成与正常代码不同的语义。不支持严格模式与支持严格模式的浏览器在执行严格模式代码时会采用不同行为。所以在没有对运行环境展开特性测试来验证对于严格模式相关方面支持的情况下，就算采用了严格模式也不一定会取得预期效果。严格">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-23T06:23:24.907Z">
+<meta property="og:updated_time" content="2019-03-23T13:14:04.878Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript严格模式">
-<meta name="twitter:description" content="JavaScript严格模式概述严格模式是采用具有限制性JavaScript变体的一种方式，从而使代码显示地 脱离“马虎模式/稀松模式/懒散模式“（sloppy）模式。 严格模式是一个受限制的子集：它的产生是为了形成与正常代码不同的语义。不支持严格模式与支持严格模式的浏览器在执行严格模式代码时会采用不同行为。所以在没有对运行环境展开特性测试来验证对于严格模式相关方面支持的情况下，就算采用了严格模式">
+<meta name="twitter:description" content="概述严格模式是采用具有限制性JavaScript变体的一种方式，从而使代码显示地 脱离“马虎模式/稀松模式/懒散模式“（sloppy）模式。 严格模式是一个受限制的子集：它的产生是为了形成与正常代码不同的语义。不支持严格模式与支持严格模式的浏览器在执行严格模式代码时会采用不同行为。所以在没有对运行环境展开特性测试来验证对于严格模式相关方面支持的情况下，就算采用了严格模式也不一定会取得预期效果。严格">
 
 
 
@@ -339,7 +340,7 @@
       
 
       
-        <h1 id="JavaScript严格模式"><a href="#JavaScript严格模式" class="headerlink" title="JavaScript严格模式"></a>JavaScript严格模式</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>严格模式是采用具有限制性JavaScript变体的一种方式，从而使代码显示地 脱离“马虎模式/稀松模式/懒散模式“（sloppy）模式。</p>
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>严格模式是采用具有限制性JavaScript变体的一种方式，从而使代码显示地 脱离“马虎模式/稀松模式/懒散模式“（sloppy）模式。</p>
 <p>严格模式是一个受限制的子集：它的产生是为了形成与正常代码不同的语义。<br>不支持严格模式与支持严格模式的浏览器在执行严格模式代码时会采用不同行为。所以在没有对运行环境展开特性测试来验证对于严格模式相关方面支持的情况下，就算采用了严格模式也不一定会取得预期效果。严格模式代码和非严格模式代码可以共存，因此项目脚本可以渐进式地采用严格模式。</p>
 <p>严格模式对正常的JavaScript语义做了一些更改。</p>
 <ul>
@@ -347,9 +348,9 @@
 <li>严格模式修复了一些导致 JavaScript引擎难以执行优化的缺陷：有时候，相同的代码，严格模式可以比非严格模式下运行得更快；</li>
 <li>严格模式禁用了在ECMAScript的未来版本中可能会定义的一些语法。</li>
 </ul>
-<h2 id="进入标志"><a href="#进入标志" class="headerlink" title="进入标志"></a>进入标志</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br></pre></td></tr></table></figure>
+<h1 id="进入标志"><a href="#进入标志" class="headerlink" title="进入标志"></a>进入标志</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br></pre></td></tr></table></figure>
 <p>老版本的浏览器会把它当作一行普通字符串，加以忽略。</p>
-<h2 id="调用"><a href="#调用" class="headerlink" title="调用"></a>调用</h2><ul>
+<h1 id="调用"><a href="#调用" class="headerlink" title="调用"></a>调用</h1><ul>
 <li><p>针对整个脚本文件    </p>
 <ul>
 <li><p>将”use strict”放在脚本文件的第一行，则整个脚本都将以”严格模式”运行。</p>
@@ -372,7 +373,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="meta">  'use strict'</span>;</span><br><span class="line">  <span class="comment">// doSomething</span></span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="语法和行为改变"><a href="#语法和行为改变" class="headerlink" title="语法和行为改变"></a>语法和行为改变</h2><ul>
+<h1 id="语法和行为改变"><a href="#语法和行为改变" class="headerlink" title="语法和行为改变"></a>语法和行为改变</h1><ul>
 <li><p>全局变量显式声明</p>
 <p>  在正常模式中，如果一个变量没有声明就赋值，默认是全局变量。严格模式禁止这种用法，全局变量必须显式声明。</p>
   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">'use strict'</span>;</span><br><span class="line">a = <span class="number">1</span>;                       <span class="comment">// error，v=a未声明</span></span><br><span class="line"><span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;    <span class="comment">// error，i未声明</span></span><br><span class="line">  <span class="comment">// doSomething</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -481,7 +482,7 @@
 </blockquote>
 </li>
 </ul>
-<h2 id="保留字"><a href="#保留字" class="headerlink" title="保留字"></a>保留字</h2><ul>
+<h1 id="保留字"><a href="#保留字" class="headerlink" title="保留字"></a>保留字</h1><ul>
 <li><p>在正常模式中合法，严格模式中是保留字</p>
 <blockquote>
 <p><code>implements</code>&nbsp;&nbsp;&nbsp;&nbsp;<code>let</code>&nbsp;&nbsp;&nbsp;&nbsp;<code>private</code>&nbsp;&nbsp;&nbsp;&nbsp;<code>public</code>&nbsp;&nbsp;&nbsp;&nbsp;<code>yield</code><br><code>interface</code>&nbsp;&nbsp;&nbsp;&nbsp;<code>package</code>&nbsp;&nbsp;&nbsp;&nbsp;<code>protected</code>&nbsp;&nbsp;&nbsp;&nbsp;<code>static</code></p>
@@ -507,6 +508,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
       
 
       
@@ -597,6 +604,15 @@
             
 
             
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
 
           </nav>
 
@@ -641,7 +657,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript严格模式"><span class="nav-number">1.</span> <span class="nav-text">JavaScript严格模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进入标志"><span class="nav-number">1.2.</span> <span class="nav-text">进入标志</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调用"><span class="nav-number">1.3.</span> <span class="nav-text">调用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语法和行为改变"><span class="nav-number">1.4.</span> <span class="nav-text">语法和行为改变</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#保留字"><span class="nav-number">1.5.</span> <span class="nav-text">保留字</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#进入标志"><span class="nav-number">2.</span> <span class="nav-text">进入标志</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#调用"><span class="nav-number">3.</span> <span class="nav-text">调用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#语法和行为改变"><span class="nav-number">4.</span> <span class="nav-text">语法和行为改变</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#保留字"><span class="nav-number">5.</span> <span class="nav-text">保留字</span></a></li></ol></div>
             
 
           </div>
