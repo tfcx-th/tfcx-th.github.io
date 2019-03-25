@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="JavaScript,前端,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="JavaScript的数据类型数据类型（type）：能够表示并操作的值得类型 变量（variable）：一个值的符号名称，通过名称获得对值的引用  原始类型（primitive type） 数字 字符串 布尔值   对象类型（object type） 特殊的原始值 null（空） undefined（未定义）     数字JavaScript不区分整数值和浮点数，所有数字均用浮点数（IEEE754">
+<meta name="keywords" content="JavaScript,前端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript严格模式">
+<meta property="og:url" content="http://yoursite.com/2019/03/23/Type&value&variable/index.html">
+<meta property="og:site_name" content="天赋创新的blog">
+<meta property="og:description" content="JavaScript的数据类型数据类型（type）：能够表示并操作的值得类型 变量（variable）：一个值的符号名称，通过名称获得对值的引用  原始类型（primitive type） 数字 字符串 布尔值   对象类型（object type） 特殊的原始值 null（空） undefined（未定义）     数字JavaScript不区分整数值和浮点数，所有数字均用浮点数（IEEE754">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-25T08:19:34.979Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript严格模式">
+<meta name="twitter:description" content="JavaScript的数据类型数据类型（type）：能够表示并操作的值得类型 变量（variable）：一个值的符号名称，通过名称获得对值的引用  原始类型（primitive type） 数字 字符串 布尔值   对象类型（object type） 特殊的原始值 null（空） undefined（未定义）     数字JavaScript不区分整数值和浮点数，所有数字均用浮点数（IEEE754">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/23/Type&value&variable/">
+
+
+
+
+
+  <title>JavaScript严格模式 | 天赋创新的blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">天赋创新的blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/23/Type&value&variable/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="tfcx">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/test.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="天赋创新的blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JavaScript严格模式</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-23T14:17:41+08:00">
+                2019-03-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="JavaScript的数据类型"><a href="#JavaScript的数据类型" class="headerlink" title="JavaScript的数据类型"></a>JavaScript的数据类型</h1><pre><code>数据类型（type）：能够表示并操作的值得类型
+变量（variable）：一个值的符号名称，通过名称获得对值的引用
+</code></pre><ul>
+<li>原始类型（primitive type）<ul>
+<li>数字</li>
+<li>字符串</li>
+<li>布尔值</li>
+</ul>
+</li>
+<li>对象类型（object type）</li>
+<li>特殊的原始值<ul>
+<li>null（空）</li>
+<li>undefined（未定义）</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h1><pre><code>JavaScript不区分整数值和浮点数，所有数字均用浮点数（IEEE754）表示
+</code></pre><h2 id="整型"><a href="#整型" class="headerlink" title="整型"></a>整型</h2><ul>
+<li><p>十进制</p>
+<blockquote>
+<p>0<br>9<br>314124</p>
+</blockquote>
+</li>
+<li><p>十六进制：以0x或0X为前缀</p>
+<blockquote>
+<p>0xff&nbsp;&nbsp;&nbsp;&nbsp;//255</p>
+</blockquote>
+</li>
+<li><p>八进制：部分支持，ES6严格模式不支持</p>
+</li>
+</ul>
+<h2 id="浮点型"><a href="#浮点型" class="headerlink" title="浮点型"></a>浮点型</h2><ul>
+<li><p>含有小数点</p>
+<blockquote>
+<p>3.14<br>.475</p>
+</blockquote>
+</li>
+<li><p>指数计数法</p>
+<blockquote>
+<p>9.234e1231<br>2.31E-1423523</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h2><ul>
+<li>加（+）、减（-）、乘（*）、除（/）、求余（%）</li>
+<li><p><strong>特殊情况</strong></p>
+<h4 id="溢出（overflow）：数字运算结果超过JavaScript所能表示的数字上限，结果为一个无穷大值，用Infinity表示"><a href="#溢出（overflow）：数字运算结果超过JavaScript所能表示的数字上限，结果为一个无穷大值，用Infinity表示" class="headerlink" title="溢出（overflow）：数字运算结果超过JavaScript所能表示的数字上限，结果为一个无穷大值，用Infinity表示"></a>溢出（overflow）：数字运算结果超过JavaScript所能表示的数字上限，结果为一个无穷大值，用<code>Infinity</code>表示</h4>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> / <span class="number">0</span>                   <span class="comment">// =&gt; Infinity</span></span><br><span class="line"><span class="number">-1</span> / <span class="number">0</span>                  <span class="comment">// =&gt; -Infinity</span></span><br><span class="line"><span class="number">1</span> + <span class="literal">Infinity</span>            <span class="comment">// =&gt; Infinity</span></span><br><span class="line"><span class="literal">Infinity</span> + <span class="literal">Infinity</span>     <span class="comment">// =&gt; Infinity</span></span><br></pre></td></tr></table></figure>
+<h4 id="下溢（underflow）：运算结果无限接近0并比JavaScript能表示的最小值还小，此时JavaScript返回0。当一个负数发生下溢时，返回-0"><a href="#下溢（underflow）：运算结果无限接近0并比JavaScript能表示的最小值还小，此时JavaScript返回0。当一个负数发生下溢时，返回-0" class="headerlink" title="下溢（underflow）：运算结果无限接近0并比JavaScript能表示的最小值还小，此时JavaScript返回0。当一个负数发生下溢时，返回-0"></a>下溢（underflow）：运算结果无限接近0并比JavaScript能表示的最小值还小，此时JavaScript返回0。当一个负数发生下溢时，返回-0</h4>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span> === <span class="number">-0</span>                <span class="comment">// =&gt; true</span></span><br><span class="line"><span class="number">1</span> / <span class="number">0</span> === <span class="number">1</span> / <span class="number">-0</span>        <span class="comment">// =&gt; false</span></span><br></pre></td></tr></table></figure>
+<h4 id="非数字（NaN）"><a href="#非数字（NaN）" class="headerlink" title="非数字（NaN）"></a>非数字（NaN）</h4>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span> / <span class="number">0</span>                   <span class="comment">// =&gt; NaN</span></span><br><span class="line"><span class="literal">Infinity</span> - <span class="literal">Infinity</span>     <span class="comment">// =&gt; NaN</span></span><br><span class="line"><span class="literal">Infinity</span> / <span class="literal">Infinity</span>     <span class="comment">// =&gt; NaN</span></span><br><span class="line"><span class="built_in">Math</span>.sqrt(<span class="number">-1</span>)           <span class="comment">// =&gt; NaN</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>NaN</code>与任何值都不相等，包括自身，无法用<code>x == NaN</code>判断<br>当且仅当x为<code>NaN</code>，<code>x != x</code>为true</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">    &gt;<span class="keyword">var</span> x = <span class="literal">NaN</span>;</span><br><span class="line">    &gt;<span class="built_in">console</span>.log(x != x);   <span class="comment">// =&gt; true</span></span><br><span class="line"></span><br><span class="line">## 二进制浮点数和四舍五入错误</span><br><span class="line">* 用JavaScript使用实数时，常常只是真实值的一个近似表示</span><br><span class="line">* 浮点数转化为二进制可能会产生无限循环小数，由于IEEE754尾数位数限制，需要将后面多余的位截掉，由于指数位数不相同，运算时需要对阶运算，这部分也可能产生精度损失</span><br><span class="line">    &gt;<span class="number">0.1</span> -&gt; <span class="number">0.0001100110011001</span>...(无限循环)&lt;<span class="regexp">/br&gt;</span></span><br><span class="line"><span class="regexp">    &gt;0.2 -&gt; 0.0011001100110011...(无限循环)</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">    ```javascript</span></span><br><span class="line"><span class="regexp">    var x = 0.3;</span></span><br><span class="line"><span class="regexp">    var y = 0.2;</span></span><br><span class="line"><span class="regexp">    var z = 0.1;</span></span><br><span class="line"><span class="regexp">    (x - y) == (y - z);         /</span><span class="regexp">/ =&gt; false</span></span><br><span class="line"><span class="regexp">    (x - y) == 0.1;             /</span><span class="regexp">/ =&gt; false</span></span><br><span class="line"><span class="regexp">    (y - z) == 0.1;             /</span><span class="regexp">/ =&gt; true</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>可以通过转化为整数解决这个问题</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">10</span> * x - <span class="number">10</span> * y) == (<span class="number">10</span> * y - <span class="number">10</span> * z);     <span class="comment">// =&gt; true</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="日期和时间"><a href="#日期和时间" class="headerlink" title="日期和时间"></a>日期和时间</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> then = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2018</span>, <span class="number">0</span>, <span class="number">1</span>);               <span class="comment">// =&gt; 2018年1月1日</span></span><br><span class="line"><span class="keyword">var</span> later = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2018</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">18</span>, <span class="number">0</span>, <span class="number">0</span>);    <span class="comment">// =&gt; 2018年1月1日18点</span></span><br><span class="line"><span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();                          <span class="comment">// =&gt; 当前日期和时间</span></span><br><span class="line"><span class="keyword">var</span> elapsed = now - then;                      <span class="comment">// =&gt; 计算时间间隔的毫秒数</span></span><br><span class="line">later.getFullYear()                            <span class="comment">// =&gt; 2019</span></span><br><span class="line">later.getMonth()                               <span class="comment">// =&gt; 2，从0开始计数</span></span><br><span class="line">later.getDate()                                <span class="comment">// =&gt; 1，从1开始计数</span></span><br><span class="line">later.getDay()                                 <span class="comment">// =&gt; 5，得到星期几，0为周日</span></span><br><span class="line">later.getHours()                               <span class="comment">// =&gt; 当地时间小时</span></span><br><span class="line">later.getUTCHours()                            <span class="comment">// =&gt; 使用UTC表示小时的时间，基于时区</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>获取当月第一天</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new Date(year, month - 1, 1)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取上月最后一天</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new Date(year, month - 1, 0)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h1><pre><code>由16位值组成的不可变的有序序列。每个字符通常来自Unicode字符集
+</code></pre><h2 id="字符串直接量"><a href="#字符串直接量" class="headerlink" title="字符串直接量"></a>字符串直接量</h2><ul>
+<li>由单引号或双引号括起来的字符序列。</li>
+<li><p>由单引号定界的字符串中可以包含双引号，由双引号定界的字符串中可以包含单引号。</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">''</span>                          <span class="comment">// =&gt; 空字符串</span></span><br><span class="line"><span class="string">'abcdefg'</span>                   <span class="comment">// =&gt; 字符串abcdefg</span></span><br><span class="line"><span class="string">'3.14'</span>                      <span class="comment">// =&gt; 字符串3.14</span></span><br><span class="line"><span class="string">'name = "tfcx"'</span>             <span class="comment">// =&gt; 字符串(name = "tfcx")</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>字符串直接量可以拆分成数行，每行必须以反斜线<code>\</code>结束，反斜线和行结束符都不算字符串直接量的内容</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'tong\</span></span><br><span class="line"><span class="string">  hao'</span></span><br><span class="line">alert(str);                  <span class="comment">// tong  hao</span></span><br><span class="line">alert(str.length);           <span class="comment">// 9</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>换行时行前空格也算作字符</p>
+</blockquote>
+</li>
+<li><p>希望字符串另起一行可以加<code>\n</code>，<code>\n</code>占一个字符</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'tong\nhao'</span></span><br><span class="line">alert(str);                  <span class="comment">// =&gt; tong</span></span><br><span class="line">                             <span class="comment">//    hao</span></span><br><span class="line">alert(str.length);           <span class="comment">// =&gt; 8</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="字符串的使用"><a href="#字符串的使用" class="headerlink" title="字符串的使用"></a>字符串的使用</h2><ul>
+<li><p>字符串连接</p>
+<p>  <code>+</code>用于字符串表示将第二个字符串拼接在第一个之后</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'XJ'</span> + <span class="string">'TU'</span>                  <span class="comment">// =&gt; XJTU</span></span><br></pre></td></tr></table></figure>
+<p>  连接数字和字符串时，从左往右计算，数字转换为字符串</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'asd'</span> + <span class="number">1</span> + <span class="number">2</span>                <span class="comment">// =&gt; asd12</span></span><br><span class="line"><span class="number">1</span> + <span class="number">2</span> + <span class="string">'asd'</span>                <span class="comment">// =&gt; 3asd</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>其他方法</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'hello, world'</span>;</span><br><span class="line">str.length                          <span class="comment">// =&gt; 12</span></span><br><span class="line">str.charAt(<span class="number">0</span>)                       <span class="comment">// =&gt; h</span></span><br><span class="line">str.charAt(str.length - <span class="number">1</span>)          <span class="comment">// =&gt; d\</span></span><br><span class="line">str.toUpperCase()                   <span class="comment">// =&gt; HELLO, WORLD</span></span><br><span class="line">str.toLowerCase()                   <span class="comment">// =&gt; hello, world</span></span><br><span class="line">str.replace(<span class="string">'h'</span>, <span class="string">'H'</span>)               <span class="comment">// =&gt; Hello, world</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * String.substring(from, to) 返回字符串子串</span></span><br><span class="line"><span class="comment"> * @param &#123;number&#125; from - 非负整数，指定要提取的子串的第一个字符在string中的位置</span></span><br><span class="line"><span class="comment"> * @param &#123;number&#125; to - 非负整数，比要提取的子串的最后一个字符的位置大1；若省略则子串持续到末尾</span></span><br><span class="line"><span class="comment"> * @returns &#123;String&#125; - 返回新的字符串，为原字符串from到to-1的副本</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">str.substring(<span class="number">1</span>, <span class="number">4</span>)                 <span class="comment">// =&gt; ell</span></span><br><span class="line">str.substring(<span class="number">7</span>)                    <span class="comment">// =&gt; world</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/** </span></span><br><span class="line"><span class="comment"> * String.slice(start, end) 提取一个子串</span></span><br><span class="line"><span class="comment"> * @param &#123;number&#125; start - 切片开始的索引，如果为负，则从尾部开始计算</span></span><br><span class="line"><span class="comment"> * @param &#123;number&#125; end - 紧跟着切片结尾的字符串索引；如果不指定，则切片将包括从start开始到结尾的所有字符；如果为负，则从尾部开始计算</span></span><br><span class="line"><span class="comment"> * @returns &#123;String&#125; - 返回新的字符串，为原字符串start到end但不包括end的所有字符的副本</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">str.slice(<span class="number">2</span>, <span class="number">6</span>)                     <span class="comment">// =&gt; llo,</span></span><br><span class="line">str.slice(<span class="number">9</span>)                        <span class="comment">// =&gt; rld</span></span><br><span class="line">str.slice(<span class="number">-4</span>, <span class="number">-1</span>)                   <span class="comment">// =&gt; orl</span></span><br><span class="line">str.slice(<span class="number">4</span>, <span class="number">-1</span>)                    <span class="comment">// =&gt; o, worl</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * String.split(delimiter, limit) 将一个字符串切分成一个由字符串组成的数组</span></span><br><span class="line"><span class="comment"> * @param delimiter - string切分处的字符串或正则表达式</span></span><br><span class="line"><span class="comment"> * @param limit &#123;number&#125; - 可选，指定已返回数组的最大长度</span></span><br><span class="line"><span class="comment"> * @returns &#123;Array&#125; - 一个由字符串组成的数组</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">str.split(<span class="string">','</span>)                      <span class="comment">// =&gt; ['hello', ' world']</span></span><br><span class="line">str.split(<span class="string">'o'</span>, <span class="number">2</span>)                   <span class="comment">// =&gt; ['hell', ', w']</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * String.indexOf(substring, start) 搜索一个子串</span></span><br><span class="line"><span class="comment"> * @param substring &#123;String&#125; - 在String中搜索的子串</span></span><br><span class="line"><span class="comment"> * @param start &#123;number&#125; - 可选的整数，指定该次搜索在字符串中的开始位置，合法值为0到String.length - 1；若省略，则从头开始</span></span><br><span class="line"><span class="comment"> * @returns &#123;number&#125; - 返回substring第一次出现的位置，若没找到则返回-1</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">str.indexOf(<span class="string">'ll'</span>)                   <span class="comment">// =&gt; 2</span></span><br><span class="line">str.indexOf(<span class="string">'lluj'</span>)                 <span class="comment">// =&gt; -1</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在JavaScript中字符串都是固定不变的，类似<code>replace()</code>等方法都返回新字符串，原字符串本身不发生改变；字符串也可看做只读数组，用方括号访问单个字符</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="布尔值"><a href="#布尔值" class="headerlink" title="布尔值"></a>布尔值</h1><ul>
+<li>布尔值类型只有<code>true</code>和<code>false</code></li>
+<li>任意JavaScript的值都可以转换为布尔值<blockquote>
+<p><code>undefined</code>, <code>null</code>, <code>0</code>, <code>-0</code>, <code>NaN</code>, <code>&#39;&#39;</code>会被转换为<code>false</code><br>所有其他值都会转换成<code>true</code></p>
+</blockquote>
+</li>
+</ul>
+<h1 id="null和undefined"><a href="#null和undefined" class="headerlink" title="null和undefined"></a>null和undefined</h1>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/23/JavaScriptStrictMode/" rel="prev" title="JavaScript严格模式">
+                JavaScript严格模式 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/test.jpg" alt="tfcx">
+            
+              <p class="site-author-name" itemprop="name">tfcx</p>
+              <p class="site-description motion-element" itemprop="description">前端小码农~</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/tfcx-th" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:tonghao_xjtu@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript的数据类型"><span class="nav-number">1.</span> <span class="nav-text">JavaScript的数据类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数字"><span class="nav-number">2.</span> <span class="nav-text">数字</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#整型"><span class="nav-number">2.1.</span> <span class="nav-text">整型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浮点型"><span class="nav-number">2.2.</span> <span class="nav-text">浮点型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运算"><span class="nav-number">2.3.</span> <span class="nav-text">运算</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#溢出（overflow）：数字运算结果超过JavaScript所能表示的数字上限，结果为一个无穷大值，用Infinity表示"><span class="nav-number">2.3.0.1.</span> <span class="nav-text">溢出（overflow）：数字运算结果超过JavaScript所能表示的数字上限，结果为一个无穷大值，用Infinity表示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#下溢（underflow）：运算结果无限接近0并比JavaScript能表示的最小值还小，此时JavaScript返回0。当一个负数发生下溢时，返回-0"><span class="nav-number">2.3.0.2.</span> <span class="nav-text">下溢（underflow）：运算结果无限接近0并比JavaScript能表示的最小值还小，此时JavaScript返回0。当一个负数发生下溢时，返回-0</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#非数字（NaN）"><span class="nav-number">2.3.0.3.</span> <span class="nav-text">非数字（NaN）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日期和时间"><span class="nav-number">2.4.</span> <span class="nav-text">日期和时间</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串"><span class="nav-number">3.</span> <span class="nav-text">字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串直接量"><span class="nav-number">3.1.</span> <span class="nav-text">字符串直接量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串的使用"><span class="nav-number">3.2.</span> <span class="nav-text">字符串的使用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#布尔值"><span class="nav-number">4.</span> <span class="nav-text">布尔值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null和undefined"><span class="nav-number">5.</span> <span class="nav-text">null和undefined</span></a></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">tfcx</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
