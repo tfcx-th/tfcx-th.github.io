@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="天赋创新的blog">
 <meta property="og:description" content="JavaScript的数据类型数据类型（type）：能够表示并操作的值得类型 变量（variable）：一个值的符号名称，通过名称获得对值的引用  原始类型（primitive type） 数字 字符串 布尔值   对象类型（object type） 特殊的原始值 null（空） undefined（未定义）     数字JavaScript不区分整数值和浮点数，所有数字均用浮点数（IEEE754">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-26T13:46:53.620Z">
+<meta property="og:updated_time" content="2019-03-27T07:02:34.080Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript的类型、值和变量">
 <meta name="twitter:description" content="JavaScript的数据类型数据类型（type）：能够表示并操作的值得类型 变量（variable）：一个值的符号名称，通过名称获得对值的引用  原始类型（primitive type） 数字 字符串 布尔值   对象类型（object type） 特殊的原始值 null（空） undefined（未定义）     数字JavaScript不区分整数值和浮点数，所有数字均用浮点数（IEEE754">
@@ -410,13 +410,22 @@
 <h2 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h2><ul>
 <li>加（+）、减（-）、乘（*）、除（/）、求余（%）</li>
 <li><p><strong>特殊情况</strong></p>
-<h3 id="溢出（overflow）：数字运算结果超过JavaScript所能表示的数字上限，结果为一个无穷大值，用Infinity表示"><a href="#溢出（overflow）：数字运算结果超过JavaScript所能表示的数字上限，结果为一个无穷大值，用Infinity表示" class="headerlink" title="溢出（overflow）：数字运算结果超过JavaScript所能表示的数字上限，结果为一个无穷大值，用Infinity表示"></a>溢出（overflow）：数字运算结果超过JavaScript所能表示的数字上限，结果为一个无穷大值，用<code>Infinity</code>表示</h3>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> / <span class="number">0</span>                   <span class="comment">// =&gt; Infinity</span></span><br><span class="line"><span class="number">-1</span> / <span class="number">0</span>                  <span class="comment">// =&gt; -Infinity</span></span><br><span class="line"><span class="number">1</span> + <span class="literal">Infinity</span>            <span class="comment">// =&gt; Infinity</span></span><br><span class="line"><span class="literal">Infinity</span> + <span class="literal">Infinity</span>     <span class="comment">// =&gt; Infinity</span></span><br></pre></td></tr></table></figure>
-<h3 id="下溢（underflow）：运算结果无限接近0并比JavaScript能表示的最小值还小，此时JavaScript返回0。当一个负数发生下溢时，返回-0"><a href="#下溢（underflow）：运算结果无限接近0并比JavaScript能表示的最小值还小，此时JavaScript返回0。当一个负数发生下溢时，返回-0" class="headerlink" title="下溢（underflow）：运算结果无限接近0并比JavaScript能表示的最小值还小，此时JavaScript返回0。当一个负数发生下溢时，返回-0"></a>下溢（underflow）：运算结果无限接近0并比JavaScript能表示的最小值还小，此时JavaScript返回0。当一个负数发生下溢时，返回-0</h3>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span> === <span class="number">-0</span>                <span class="comment">// =&gt; true</span></span><br><span class="line"><span class="number">1</span> / <span class="number">0</span> === <span class="number">1</span> / <span class="number">-0</span>        <span class="comment">// =&gt; false</span></span><br></pre></td></tr></table></figure>
-<h3 id="非数字（NaN）"><a href="#非数字（NaN）" class="headerlink" title="非数字（NaN）"></a>非数字（NaN）</h3>  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span> / <span class="number">0</span>                   <span class="comment">// =&gt; NaN</span></span><br><span class="line"><span class="literal">Infinity</span> - <span class="literal">Infinity</span>     <span class="comment">// =&gt; NaN</span></span><br><span class="line"><span class="literal">Infinity</span> / <span class="literal">Infinity</span>     <span class="comment">// =&gt; NaN</span></span><br><span class="line"><span class="built_in">Math</span>.sqrt(<span class="number">-1</span>)           <span class="comment">// =&gt; NaN</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>溢出（overflow）：数字运算结果超过JavaScript所能表示的数字上限，结果为一个无穷大值，用<code>Infinity</code>表示</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> / <span class="number">0</span>                   <span class="comment">// =&gt; Infinity</span></span><br><span class="line"><span class="number">-1</span> / <span class="number">0</span>                  <span class="comment">// =&gt; -Infinity</span></span><br><span class="line"><span class="number">1</span> + <span class="literal">Infinity</span>            <span class="comment">// =&gt; Infinity</span></span><br><span class="line"><span class="literal">Infinity</span> + <span class="literal">Infinity</span>     <span class="comment">// =&gt; Infinity</span></span><br></pre></td></tr></table></figure>
+<p>  Number.MAX_VALUE + 1结果并非Infinity(1.7976931348623157e+308)。参考<a href="https://www.zhihu.com/question/24423421/answer/140269663" target="_blank" rel="noopener">为什么在 js 中 Number.MAX_VALUE + 1 不是 Infinity？</a></p>
+</li>
+<li><p>下溢（underflow）：运算结果无限接近0并比JavaScript能表示的最小值还小，此时JavaScript返回0。当一个负数发生下溢时，返回-0</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span> === <span class="number">-0</span>                <span class="comment">// =&gt; true</span></span><br><span class="line"><span class="number">1</span> / <span class="number">0</span> === <span class="number">1</span> / <span class="number">-0</span>        <span class="comment">// =&gt; false</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>非数字（NaN）</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span> / <span class="number">0</span>                   <span class="comment">// =&gt; NaN</span></span><br><span class="line"><span class="literal">Infinity</span> - <span class="literal">Infinity</span>     <span class="comment">// =&gt; NaN</span></span><br><span class="line"><span class="literal">Infinity</span> / <span class="literal">Infinity</span>     <span class="comment">// =&gt; NaN</span></span><br><span class="line"><span class="built_in">Math</span>.sqrt(<span class="number">-1</span>)           <span class="comment">// =&gt; NaN</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p><code>NaN</code>与任何值都不相等，包括自身，无法用<code>x == NaN</code>判断<br>当且仅当x为<code>NaN</code>，<code>x != x</code>为true</p>
   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="literal">NaN</span>;</span><br><span class="line"><span class="built_in">console</span>.log(x != x);   <span class="comment">// =&gt; true</span></span><br></pre></td></tr></table></figure>
 </blockquote>
+</li>
+</ul>
 </li>
 </ul>
 <h2 id="二进制浮点数和四舍五入错误"><a href="#二进制浮点数和四舍五入错误" class="headerlink" title="二进制浮点数和四舍五入错误"></a>二进制浮点数和四舍五入错误</h2><ul>
@@ -506,12 +515,172 @@
 <li><p>当初次创建时，全局对象定义了JavaScript中所有的预定义全局值。这个特殊对象同样包含了为程序定义的全局值。如果代码声明了一个全局变量，这个全局变量就是全局对象的一个属性。</p>
 </li>
 </ul>
-<h1 id="包装对象"><a href="#包装对象" class="headerlink" title="包装对象"></a>包装对象</h1><p>存取字符串、数字或布尔值的属性时创建的临时对象称作包装对象。</p>
-<p>例：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'hello, world'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.substring(str.indexOf(<span class="string">' '</span>) + <span class="number">1</span>, str.length));</span><br><span class="line"><span class="comment">// =&gt; world</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="包装对象"><a href="#包装对象" class="headerlink" title="包装对象"></a>包装对象</h1><pre><code>存取字符串、数字或布尔值的属性时创建的临时对象称作包装对象。
+</code></pre><p>例：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'hello, world'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.substring(str.indexOf(<span class="string">' '</span>) + <span class="number">1</span>, str.length));</span><br><span class="line"><span class="comment">// =&gt; world</span></span><br></pre></td></tr></table></figure></p>
 <p>当引用字符串<code>str</code>的属性，JavaScript就会将字符串值通过调用<code>new String(s)</code>的方式转换成对象，这个对象继承了字符串的方法，并被用来处理属性的引用。一旦属性引用结束，这个新创建的对象就会销毁。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'test'</span>;</span><br><span class="line">str.len = <span class="number">4</span>;</span><br><span class="line"><span class="keyword">var</span> t = str.len;</span><br><span class="line"><span class="built_in">console</span>.log(t);                            <span class="comment">// =&gt; undefined</span></span><br></pre></td></tr></table></figure></p>
 <blockquote>
 <p>修改只发生在临时对象身上，而临时对象并未继续保留下来<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'test'</span>;</span><br><span class="line"><span class="keyword">var</span> Str = <span class="keyword">new</span> <span class="built_in">String</span>(str);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> str);                    <span class="comment">// =&gt; string</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> Str);                    <span class="comment">// =&gt; object</span></span><br><span class="line"><span class="built_in">console</span>.log(str == Str);                    <span class="comment">// =&gt; true</span></span><br><span class="line"><span class="built_in">console</span>.log(str === Str);                   <span class="comment">// =&gt; false</span></span><br></pre></td></tr></table></figure></p>
 </blockquote>
+<h1 id="不可变的原始值和可变的对象引用"><a href="#不可变的原始值和可变的对象引用" class="headerlink" title="不可变的原始值和可变的对象引用"></a>不可变的原始值和可变的对象引用</h1><pre><code>原始值：数字、字符串、布尔值、`undefined`、`null`
+对象：数组、函数等
+</code></pre><h2 id="原始值"><a href="#原始值" class="headerlink" title="原始值"></a>原始值</h2><ul>
+<li><p>原始值用任何方法都不能更改；字符串的所有方法均返回一个新的字符串</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'test'</span>;</span><br><span class="line"><span class="keyword">var</span> str1 = str.toUpperCase();</span><br><span class="line"><span class="built_in">console</span>.log(str);                       <span class="comment">// =&gt; 'test'</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>原始值的比较是值的比较：值相等的时候才相等；对于字符串，当且仅当长度相等且每个索引的字符串都相等时才相等。</p>
+</li>
+</ul>
+<h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><ul>
+<li><p>对象的值是可修改的</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">arr[<span class="number">1</span>] = <span class="number">5</span>;</span><br><span class="line"><span class="built_in">console</span>.log(arr);                       <span class="comment">// =&gt; [1, 5, 3]</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对象的比较不是值的比较，即使两个对象包含同样的属性及相同的值，他们也不相等；各个索引元素完全相同的两个数组也不相等</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj1 = &#123; <span class="attr">x</span>: <span class="number">1</span> &#125;,</span><br><span class="line">    obj2 = &#123; <span class="attr">x</span>: <span class="number">1</span> &#125;;</span><br><span class="line"><span class="built_in">console</span>.log(obj1 === obj2);              <span class="comment">// =&gt; fasle</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对象是引用类型（reference type），对象的比较均是引用的比较，当且仅当它们引用同一个基对象时才相等</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> arr2 = arr1;</span><br><span class="line"><span class="built_in">console</span>.log(arr1 === arr2);              <span class="comment">// =&gt; true</span></span><br><span class="line">arr2[<span class="number">2</span>] = <span class="number">9</span>;</span><br><span class="line"><span class="built_in">console</span>.log(arr1[<span class="number">2</span>]);                    <span class="comment">// =&gt; 9</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>想得到一个数组或对象的副本，必须显式复制对象的每个属性或数组的每个元素</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">var</span> arr2 = [];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr1.length; i++) &#123;</span><br><span class="line">    arr2[i] = arr1[i];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果想比较两个单独的对象或者数组，则必须比较它们的属性或元素</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">euqalArrays</span>(<span class="params">arr1, arr2</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (arr1.length != arr2.length) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr1.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (arr1[i] != arr2[i]) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h1><h2 id="原始值的转换"><a href="#原始值的转换" class="headerlink" title="原始值的转换"></a>原始值的转换</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">值(转换为)</th>
+<th style="text-align:center">字符串</th>
+<th style="text-align:center">数字</th>
+<th style="text-align:center">布尔值</th>
+<th style="text-align:center">对象</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">undefined</td>
+<td style="text-align:center">‘undefined’</td>
+<td style="text-align:center">NaN</td>
+<td style="text-align:center">false</td>
+<td style="text-align:center">throw TypeError</td>
+</tr>
+<tr>
+<td style="text-align:center">null</td>
+<td style="text-align:center">‘null’</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">false</td>
+<td style="text-align:center">throw TypeError</td>
+</tr>
+<tr>
+<td style="text-align:center">true</td>
+<td style="text-align:center">‘true’</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">new Booleaan(true)</td>
+</tr>
+<tr>
+<td style="text-align:center">false</td>
+<td style="text-align:center">‘false’</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">new Boolean(false)</td>
+</tr>
+<tr>
+<td style="text-align:center">‘’（空字符串）</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">false</td>
+<td style="text-align:center">new String(‘’)</td>
+</tr>
+<tr>
+<td style="text-align:center">‘1.2’</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">1.2</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">new String(‘1.2’)</td>
+</tr>
+<tr>
+<td style="text-align:center">‘one’</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">NaN</td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">new String(‘one’)</td>
+</tr>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">‘0’</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">false</td>
+<td style="text-align:center">new Number(0)</td>
+</tr>
+<tr>
+<td style="text-align:center">-0</td>
+<td style="text-align:center">‘0’</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">false</td>
+<td style="text-align:center">new Number(-0)</td>
+</tr>
+<tr>
+<td style="text-align:center">NaN</td>
+<td style="text-align:center">‘NaN’</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">false</td>
+<td style="text-align:center">new Number(NaN)</td>
+</tr>
+<tr>
+<td style="text-align:center">Infinity</td>
+<td style="text-align:center">‘Infinity’</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">new Number(Infinity)</td>
+</tr>
+<tr>
+<td style="text-align:center">-Infinty</td>
+<td style="text-align:center">‘-Infinity’</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">true</td>
+<td style="text-align:center">new Number(-Infinity)</td>
+</tr>
+</tbody>
+</table>
+<p>以数字表示的字符串转换为数字时，允许开头或结尾带空格，但开头或结尾处的任意非空格字符以及数字中间的任意字符会造成字符串转换为<code>NaN</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'  3.14  '</span>,</span><br><span class="line">    str2 = <span class="string">'3.  14'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(str1));                  <span class="comment">// =&gt; 3.14</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(str2));                  <span class="comment">// =&gt; NaN</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="显式类型转换"><a href="#显式类型转换" class="headerlink" title="显式类型转换"></a>显式类型转换</h2><ul>
+<li><p>最简单的方法是使用<code>Boolean()</code>、<code>Number()</code>、<code>String()</code>或<code>Object()</code>函数</p>
+<blockquote>
+<p>除了<code>null</code>或<code>undefined</code>之外的任何值都具有<code>toString()</code>方法，这个方法的执行结果通常和<code>String()</code>方法的返回结果一致</p>
+</blockquote>
+</li>
+<li><p>JavaScript中的某些运算符会做隐式的类型转换</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x + <span class="string">''</span>                               <span class="comment">// =&gt; String(x)</span></span><br><span class="line">+x                                   <span class="comment">// =&gt; Number(x)</span></span><br><span class="line">!!x                                  <span class="comment">// =&gt; Boolean(x);</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>Number</code>类转换为<code>String</code>的方法</p>
+<ul>
+<li><p><code>toString()</code>方法可以接受表示转换基数的可选参数，如果不指定，则默认十进制</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> n = <span class="number">15</span>;</span><br><span class="line">n.toString(<span class="number">2</span>)                <span class="comment">// =&gt; '1111'</span></span><br><span class="line">n.toString(<span class="number">8</span>)                <span class="comment">// =&gt; '17'</span></span><br><span class="line">n.toString(<span class="number">16</span>)               <span class="comment">// =&gt; 'f'</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>toFixed()</code>根据小数点后指定位数将数字转换为字符串</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> n = <span class="number">3.141</span>;</span><br><span class="line">n.toFixed()                    <span class="comment">// =&gt; 3</span></span><br><span class="line">n.toFixed(<span class="number">2</span>)                   <span class="comment">// =&gt; 3.14</span></span><br><span class="line">n.toFixed(<span class="number">4</span>)                   <span class="comment">// =&gt; 3.1410</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>toExponential()</code>使用指数计数法将数字转换为指数形式的字符串，其中小数点前只有一位，小数点后的位数由参数指定</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> n = <span class="number">12345.6789</span>;</span><br><span class="line">n.toExponential()               <span class="comment">// =&gt; '1.23456789e+4'</span></span><br><span class="line">n.toExponential(<span class="number">2</span>)              <span class="comment">// =&gt; '1.23e+4'</span></span><br><span class="line">n.toExponential(<span class="number">9</span>)              <span class="comment">// =&gt; '1.234567890e+4'</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>toPrecision()</code>根据指定的有效数字位数将数字转换成字符串</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> n = <span class="number">12345.6789</span>;</span><br><span class="line">n.toPrecision(<span class="number">3</span>)                <span class="comment">// =&gt; '1.23e+4'</span></span><br><span class="line">n.toPrecision(<span class="number">7</span>)                <span class="comment">// =&gt; '12345.68'</span></span><br><span class="line">n.toPrecision(<span class="number">10</span>)               <span class="comment">// =&gt; '12345.67890'</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><code>String</code>类转换为<code>Number</code>的方法</p>
+<ul>
+<li><p>通过<code>Number()</code>方法只能基于十进制，并且不能出现非法的尾随字符</p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'3.14qwe'</span></span><br><span class="line"><span class="built_in">Number</span>(str)                     <span class="comment">// =&gt; NaN</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>parseInt()</code>方法只解析整数，如果字符串前缀是<code>0x</code>或<code>0X</code>将被认为是十六进制；<code>parseFloat()</code>可以解析整数和浮点数。调用时会跳过任意数量的前导空格，尽可能解析更多数字字符，并忽略后面的内容。如果第一个非空格字符是非法字符，则返回<code>NaN</code></p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">parseInt</span>(<span class="string">'3asd'</span>)                <span class="comment">// =&gt; 3</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">'-3.14'</span>)               <span class="comment">// =&gt; -3</span></span><br><span class="line"><span class="built_in">parseInt</span>(<span class="string">'0xff'</span>)                <span class="comment">// =&gt; 255</span></span><br><span class="line"><span class="built_in">parseFloat</span>(<span class="string">'3.14qwe'</span>)           <span class="comment">// =&gt; 3.14</span></span><br><span class="line"><span class="built_in">parseFloat</span>(<span class="string">'qw12.324'</span>)          <span class="comment">// =&gt; NaN</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
@@ -702,7 +871,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript的数据类型"><span class="nav-number">1.</span> <span class="nav-text">JavaScript的数据类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数字"><span class="nav-number">2.</span> <span class="nav-text">数字</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#整型"><span class="nav-number">2.1.</span> <span class="nav-text">整型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浮点型"><span class="nav-number">2.2.</span> <span class="nav-text">浮点型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运算"><span class="nav-number">2.3.</span> <span class="nav-text">运算</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#溢出（overflow）：数字运算结果超过JavaScript所能表示的数字上限，结果为一个无穷大值，用Infinity表示"><span class="nav-number">2.3.1.</span> <span class="nav-text">溢出（overflow）：数字运算结果超过JavaScript所能表示的数字上限，结果为一个无穷大值，用Infinity表示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下溢（underflow）：运算结果无限接近0并比JavaScript能表示的最小值还小，此时JavaScript返回0。当一个负数发生下溢时，返回-0"><span class="nav-number">2.3.2.</span> <span class="nav-text">下溢（underflow）：运算结果无限接近0并比JavaScript能表示的最小值还小，此时JavaScript返回0。当一个负数发生下溢时，返回-0</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非数字（NaN）"><span class="nav-number">2.3.3.</span> <span class="nav-text">非数字（NaN）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二进制浮点数和四舍五入错误"><span class="nav-number">2.4.</span> <span class="nav-text">二进制浮点数和四舍五入错误</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日期和时间"><span class="nav-number">2.5.</span> <span class="nav-text">日期和时间</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串"><span class="nav-number">3.</span> <span class="nav-text">字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串直接量"><span class="nav-number">3.1.</span> <span class="nav-text">字符串直接量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串的使用"><span class="nav-number">3.2.</span> <span class="nav-text">字符串的使用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#布尔值"><span class="nav-number">4.</span> <span class="nav-text">布尔值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null和undefined"><span class="nav-number">5.</span> <span class="nav-text">null和undefined</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#全局对象"><span class="nav-number">6.</span> <span class="nav-text">全局对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#包装对象"><span class="nav-number">7.</span> <span class="nav-text">包装对象</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript的数据类型"><span class="nav-number">1.</span> <span class="nav-text">JavaScript的数据类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数字"><span class="nav-number">2.</span> <span class="nav-text">数字</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#整型"><span class="nav-number">2.1.</span> <span class="nav-text">整型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浮点型"><span class="nav-number">2.2.</span> <span class="nav-text">浮点型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运算"><span class="nav-number">2.3.</span> <span class="nav-text">运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二进制浮点数和四舍五入错误"><span class="nav-number">2.4.</span> <span class="nav-text">二进制浮点数和四舍五入错误</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日期和时间"><span class="nav-number">2.5.</span> <span class="nav-text">日期和时间</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串"><span class="nav-number">3.</span> <span class="nav-text">字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串直接量"><span class="nav-number">3.1.</span> <span class="nav-text">字符串直接量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串的使用"><span class="nav-number">3.2.</span> <span class="nav-text">字符串的使用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#布尔值"><span class="nav-number">4.</span> <span class="nav-text">布尔值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null和undefined"><span class="nav-number">5.</span> <span class="nav-text">null和undefined</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#全局对象"><span class="nav-number">6.</span> <span class="nav-text">全局对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#包装对象"><span class="nav-number">7.</span> <span class="nav-text">包装对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#不可变的原始值和可变的对象引用"><span class="nav-number">8.</span> <span class="nav-text">不可变的原始值和可变的对象引用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原始值"><span class="nav-number">8.1.</span> <span class="nav-text">原始值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象"><span class="nav-number">8.2.</span> <span class="nav-text">对象</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#类型转换"><span class="nav-number">9.</span> <span class="nav-text">类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原始值的转换"><span class="nav-number">9.1.</span> <span class="nav-text">原始值的转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#显式类型转换"><span class="nav-number">9.2.</span> <span class="nav-text">显式类型转换</span></a></li></ol></li></ol></div>
             
 
           </div>
