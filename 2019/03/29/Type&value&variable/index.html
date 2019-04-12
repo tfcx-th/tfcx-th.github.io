@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="天赋创新的blog">
 <meta property="og:description" content="JavaScript的数据类型数据类型（type）：能够表示并操作的值得类型 变量（variable）：一个值的符号名称，通过名称获得对值的引用  原始类型（primitive type） 数字 字符串 布尔值   对象类型（object type） 特殊的原始值 null（空） undefined（未定义）    数字JavaScript不区分整数值和浮点数，所有数字均用浮点数（IEEE754）">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-02T03:22:00.310Z">
+<meta property="og:updated_time" content="2019-04-12T06:32:49.155Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript的类型、值和变量">
 <meta name="twitter:description" content="JavaScript的数据类型数据类型（type）：能够表示并操作的值得类型 变量（variable）：一个值的符号名称，通过名称获得对值的引用  原始类型（primitive type） 数字 字符串 布尔值   对象类型（object type） 特殊的原始值 null（空） undefined（未定义）    数字JavaScript不区分整数值和浮点数，所有数字均用浮点数（IEEE754）">
@@ -363,7 +363,7 @@
       
 
       
-        <h1 id="JavaScript的数据类型"><a href="#JavaScript的数据类型" class="headerlink" title="JavaScript的数据类型"></a>JavaScript的数据类型</h1><pre><code>数据类型（type）：能够表示并操作的值得类型
+        <h2 id="JavaScript的数据类型"><a href="#JavaScript的数据类型" class="headerlink" title="JavaScript的数据类型"></a>JavaScript的数据类型</h2><pre><code>数据类型（type）：能够表示并操作的值得类型
 变量（variable）：一个值的符号名称，通过名称获得对值的引用
 </code></pre><ul>
 <li>原始类型（primitive type）<ul>
@@ -379,8 +379,8 @@
 </ul>
 </li>
 </ul>
-<h1 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h1><pre><code>JavaScript不区分整数值和浮点数，所有数字均用浮点数（IEEE754）表示
-</code></pre><h2 id="整型"><a href="#整型" class="headerlink" title="整型"></a>整型</h2><ul>
+<h2 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h2><pre><code>JavaScript不区分整数值和浮点数，所有数字均用浮点数（IEEE754）表示
+</code></pre><h3 id="整型"><a href="#整型" class="headerlink" title="整型"></a>整型</h3><ul>
 <li><p>十进制</p>
 <blockquote>
 <p>0<br>9<br>314124</p>
@@ -394,7 +394,7 @@
 <li><p>八进制：部分支持，ES6严格模式不支持</p>
 </li>
 </ul>
-<h2 id="浮点型"><a href="#浮点型" class="headerlink" title="浮点型"></a>浮点型</h2><ul>
+<h3 id="浮点型"><a href="#浮点型" class="headerlink" title="浮点型"></a>浮点型</h3><ul>
 <li><p>含有小数点</p>
 <blockquote>
 <p>3.14<br>.475</p>
@@ -406,7 +406,7 @@
 </blockquote>
 </li>
 </ul>
-<h2 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h2><ul>
+<h3 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h3><ul>
 <li>加（+）、减（-）、乘（*）、除（/）、求余（%）</li>
 <li><p><strong>特殊情况</strong></p>
 <ul>
@@ -427,7 +427,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="二进制浮点数和四舍五入错误"><a href="#二进制浮点数和四舍五入错误" class="headerlink" title="二进制浮点数和四舍五入错误"></a>二进制浮点数和四舍五入错误</h2><ul>
+<h3 id="二进制浮点数和四舍五入错误"><a href="#二进制浮点数和四舍五入错误" class="headerlink" title="二进制浮点数和四舍五入错误"></a>二进制浮点数和四舍五入错误</h3><ul>
 <li>用JavaScript使用实数时，常常只是真实值的一个近似表示</li>
 <li><p>浮点数转化为二进制可能会产生无限循环小数，由于IEEE754尾数位数限制，需要将后面多余的位截掉，由于指数位数不相同，运算时需要对阶运算，这部分也可能产生精度损失</p>
 <blockquote>
@@ -439,7 +439,7 @@
   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">10</span> * x - <span class="number">10</span> * y) == (<span class="number">10</span> * y - <span class="number">10</span> * z);     <span class="comment">// =&gt; true</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="日期和时间"><a href="#日期和时间" class="headerlink" title="日期和时间"></a>日期和时间</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> then = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2018</span>, <span class="number">0</span>, <span class="number">1</span>);               <span class="comment">// =&gt; 2018年1月1日</span></span><br><span class="line"><span class="keyword">var</span> later = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2018</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">18</span>, <span class="number">0</span>, <span class="number">0</span>);    <span class="comment">// =&gt; 2018年1月1日18点</span></span><br><span class="line"><span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();                          <span class="comment">// =&gt; 当前日期和时间</span></span><br><span class="line"><span class="keyword">var</span> elapsed = now - then;                      <span class="comment">// =&gt; 计算时间间隔的毫秒数</span></span><br><span class="line">later.getFullYear()                            <span class="comment">// =&gt; 2019</span></span><br><span class="line">later.getMonth()                               <span class="comment">// =&gt; 2，从0开始计数</span></span><br><span class="line">later.getDate()                                <span class="comment">// =&gt; 1，从1开始计数</span></span><br><span class="line">later.getDay()                                 <span class="comment">// =&gt; 5，得到星期几，0为周日</span></span><br><span class="line">later.getHours()                               <span class="comment">// =&gt; 当地时间小时</span></span><br><span class="line">later.getUTCHours()                            <span class="comment">// =&gt; 使用UTC表示小时的时间，基于时区</span></span><br></pre></td></tr></table></figure>
+<h3 id="日期和时间"><a href="#日期和时间" class="headerlink" title="日期和时间"></a>日期和时间</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> then = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2018</span>, <span class="number">0</span>, <span class="number">1</span>);               <span class="comment">// =&gt; 2018年1月1日</span></span><br><span class="line"><span class="keyword">var</span> later = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2018</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">18</span>, <span class="number">0</span>, <span class="number">0</span>);    <span class="comment">// =&gt; 2018年1月1日18点</span></span><br><span class="line"><span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();                          <span class="comment">// =&gt; 当前日期和时间</span></span><br><span class="line"><span class="keyword">var</span> elapsed = now - then;                      <span class="comment">// =&gt; 计算时间间隔的毫秒数</span></span><br><span class="line">later.getFullYear()                            <span class="comment">// =&gt; 2019</span></span><br><span class="line">later.getMonth()                               <span class="comment">// =&gt; 2，从0开始计数</span></span><br><span class="line">later.getDate()                                <span class="comment">// =&gt; 1，从1开始计数</span></span><br><span class="line">later.getDay()                                 <span class="comment">// =&gt; 5，得到星期几，0为周日</span></span><br><span class="line">later.getHours()                               <span class="comment">// =&gt; 当地时间小时</span></span><br><span class="line">later.getUTCHours()                            <span class="comment">// =&gt; 使用UTC表示小时的时间，基于时区</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li><p>获取当月第一天</p>
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new Date(year, month - 1, 1)</span><br></pre></td></tr></table></figure>
@@ -448,8 +448,8 @@
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new Date(year, month - 1, 0)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h1 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h1><pre><code>由16位值组成的不可变的有序序列。每个字符通常来自Unicode字符集
-</code></pre><h2 id="字符串直接量"><a href="#字符串直接量" class="headerlink" title="字符串直接量"></a>字符串直接量</h2><ul>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><pre><code>由16位值组成的不可变的有序序列。每个字符通常来自Unicode字符集
+</code></pre><h3 id="字符串直接量"><a href="#字符串直接量" class="headerlink" title="字符串直接量"></a>字符串直接量</h3><ul>
 <li>由单引号或双引号括起来的字符序列。</li>
 <li><p>由单引号定界的字符串中可以包含双引号，由双引号定界的字符串中可以包含单引号。</p>
   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">''</span>                          <span class="comment">// =&gt; 空字符串</span></span><br><span class="line"><span class="string">'abcdefg'</span>                   <span class="comment">// =&gt; 字符串abcdefg</span></span><br><span class="line"><span class="string">'3.14'</span>                      <span class="comment">// =&gt; 字符串3.14</span></span><br><span class="line"><span class="string">'name = "tfcx"'</span>             <span class="comment">// =&gt; 字符串(name = "tfcx")</span></span><br></pre></td></tr></table></figure>
@@ -464,7 +464,7 @@
   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'tong\nhao'</span></span><br><span class="line">alert(str);                  <span class="comment">// =&gt; tong</span></span><br><span class="line">                             <span class="comment">//    hao</span></span><br><span class="line">alert(str.length);           <span class="comment">// =&gt; 8</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="字符串的使用"><a href="#字符串的使用" class="headerlink" title="字符串的使用"></a>字符串的使用</h2><ul>
+<h3 id="字符串的使用"><a href="#字符串的使用" class="headerlink" title="字符串的使用"></a>字符串的使用</h3><ul>
 <li><p>字符串连接</p>
 <p>  <code>+</code>用于字符串表示将第二个字符串拼接在第一个之后</p>
   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'XJ'</span> + <span class="string">'TU'</span>                  <span class="comment">// =&gt; XJTU</span></span><br></pre></td></tr></table></figure>
@@ -478,14 +478,14 @@
 </blockquote>
 </li>
 </ul>
-<h1 id="布尔值"><a href="#布尔值" class="headerlink" title="布尔值"></a>布尔值</h1><ul>
+<h2 id="布尔值"><a href="#布尔值" class="headerlink" title="布尔值"></a>布尔值</h2><ul>
 <li>布尔值类型只有<code>true</code>和<code>false</code></li>
 <li>任意JavaScript的值都可以转换为布尔值<blockquote>
 <p><code>undefined</code>, <code>null</code>, <code>0</code>, <code>-0</code>, <code>NaN</code>, <code>&#39;&#39;</code>会被转换为<code>false</code><br>所有其他值都会转换成<code>true</code></p>
 </blockquote>
 </li>
 </ul>
-<h1 id="null和undefined"><a href="#null和undefined" class="headerlink" title="null和undefined"></a>null和undefined</h1><ul>
+<h2 id="null和undefined"><a href="#null和undefined" class="headerlink" title="null和undefined"></a>null和undefined</h2><ul>
 <li><p><code>null</code>是JavaScript的关键字，常用来描述“空值”。<code>null</code>是一个特殊的对象值，通常认为<code>null</code>是它自有类型的唯一一个成员，表示数字、字符串和对象是“无值”的。</p>
   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="literal">null</span>                         <span class="comment">// =&gt; object</span></span><br></pre></td></tr></table></figure>
 </li>
@@ -500,7 +500,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">null</span> == <span class="literal">undefined</span>                         <span class="comment">// =&gt; true</span></span><br><span class="line"><span class="literal">null</span> === <span class="literal">undefined</span>                        <span class="comment">// =&gt; false</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h1 id="全局对象"><a href="#全局对象" class="headerlink" title="全局对象"></a>全局对象</h1><ul>
+<h2 id="全局对象"><a href="#全局对象" class="headerlink" title="全局对象"></a>全局对象</h2><ul>
 <li><p>全局对象的属性是全局定义的符号，JavaScript程序可以直接使用。当JavaScript解释器启动时（或任何web浏览器加载新页面时），将创建一个新的全局对象，并给他一组定义的初试属性：</p>
 <ul>
 <li>全局属性：<code>undefined</code>、<code>Infinity</code>、<code>NaN</code>等</li>
@@ -514,22 +514,22 @@
 <li><p>当初次创建时，全局对象定义了JavaScript中所有的预定义全局值。这个特殊对象同样包含了为程序定义的全局值。如果代码声明了一个全局变量，这个全局变量就是全局对象的一个属性。</p>
 </li>
 </ul>
-<h1 id="包装对象"><a href="#包装对象" class="headerlink" title="包装对象"></a>包装对象</h1><pre><code>存取字符串、数字或布尔值的属性时创建的临时对象称作包装对象。
+<h2 id="包装对象"><a href="#包装对象" class="headerlink" title="包装对象"></a>包装对象</h2><pre><code>存取字符串、数字或布尔值的属性时创建的临时对象称作包装对象。
 </code></pre><p>例：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'hello, world'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.substring(str.indexOf(<span class="string">' '</span>) + <span class="number">1</span>, str.length));</span><br><span class="line"><span class="comment">// =&gt; world</span></span><br></pre></td></tr></table></figure></p>
 <p>当引用字符串<code>str</code>的属性，JavaScript就会将字符串值通过调用<code>new String(s)</code>的方式转换成对象，这个对象继承了字符串的方法，并被用来处理属性的引用。一旦属性引用结束，这个新创建的对象就会销毁。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'test'</span>;</span><br><span class="line">str.len = <span class="number">4</span>;</span><br><span class="line"><span class="keyword">var</span> t = str.len;</span><br><span class="line"><span class="built_in">console</span>.log(t);                            <span class="comment">// =&gt; undefined</span></span><br></pre></td></tr></table></figure></p>
 <blockquote>
 <p>修改只发生在临时对象身上，而临时对象并未继续保留下来<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'test'</span>;</span><br><span class="line"><span class="keyword">var</span> Str = <span class="keyword">new</span> <span class="built_in">String</span>(str);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> str);                    <span class="comment">// =&gt; string</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> Str);                    <span class="comment">// =&gt; object</span></span><br><span class="line"><span class="built_in">console</span>.log(str == Str);                    <span class="comment">// =&gt; true</span></span><br><span class="line"><span class="built_in">console</span>.log(str === Str);                   <span class="comment">// =&gt; false</span></span><br></pre></td></tr></table></figure></p>
 </blockquote>
-<h1 id="不可变的原始值和可变的对象引用"><a href="#不可变的原始值和可变的对象引用" class="headerlink" title="不可变的原始值和可变的对象引用"></a>不可变的原始值和可变的对象引用</h1><pre><code>原始值：数字、字符串、布尔值、`undefined`、`null`
+<h2 id="不可变的原始值和可变的对象引用"><a href="#不可变的原始值和可变的对象引用" class="headerlink" title="不可变的原始值和可变的对象引用"></a>不可变的原始值和可变的对象引用</h2><pre><code>原始值：数字、字符串、布尔值、`undefined`、`null`
 对象：数组、函数等
-</code></pre><h2 id="原始值"><a href="#原始值" class="headerlink" title="原始值"></a>原始值</h2><ul>
+</code></pre><h3 id="原始值"><a href="#原始值" class="headerlink" title="原始值"></a>原始值</h3><ul>
 <li><p>原始值用任何方法都不能更改；字符串的所有方法均返回一个新的字符串</p>
   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'test'</span>;</span><br><span class="line"><span class="keyword">var</span> str1 = str.toUpperCase();</span><br><span class="line"><span class="built_in">console</span>.log(str);                       <span class="comment">// =&gt; 'test'</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>原始值的比较是值的比较：值相等的时候才相等；对于字符串，当且仅当长度相等且每个索引的字符串都相等时才相等。</p>
 </li>
 </ul>
-<h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><ul>
+<h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><ul>
 <li><p>对象的值是可修改的</p>
   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">arr[<span class="number">1</span>] = <span class="number">5</span>;</span><br><span class="line"><span class="built_in">console</span>.log(arr);                       <span class="comment">// =&gt; [1, 5, 3]</span></span><br></pre></td></tr></table></figure>
 </li>
@@ -546,7 +546,7 @@
   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">euqalArrays</span>(<span class="params">arr1, arr2</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (arr1.length != arr2.length) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr1.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (arr1[i] != arr2[i]) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h1 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h1><h2 id="原始值的转换"><a href="#原始值的转换" class="headerlink" title="原始值的转换"></a>原始值的转换</h2><table>
+<h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><h3 id="原始值的转换"><a href="#原始值的转换" class="headerlink" title="原始值的转换"></a>原始值的转换</h3><table>
 <thead>
 <tr>
 <th style="text-align:center">值(转换为)</th>
@@ -644,7 +644,7 @@
 </tbody>
 </table>
 <p>以数字表示的字符串转换为数字时，允许开头或结尾带空格，但开头或结尾处的任意非空格字符以及数字中间的任意字符会造成字符串转换为<code>NaN</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'  3.14  '</span>,</span><br><span class="line">    str2 = <span class="string">'3.  14'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(str1));                  <span class="comment">// =&gt; 3.14</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Number</span>(str2));                  <span class="comment">// =&gt; NaN</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="显式类型转换"><a href="#显式类型转换" class="headerlink" title="显式类型转换"></a>显式类型转换</h2><ul>
+<h3 id="显式类型转换"><a href="#显式类型转换" class="headerlink" title="显式类型转换"></a>显式类型转换</h3><ul>
 <li><p>最简单的方法是使用<code>Boolean()</code>、<code>Number()</code>、<code>String()</code>或<code>Object()</code>函数</p>
 <blockquote>
 <p>除了<code>null</code>或<code>undefined</code>之外的任何值都具有<code>toString()</code>方法，这个方法的执行结果通常和<code>String()</code>方法的返回结果一致</p>
@@ -683,7 +683,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="对象转换为原始值"><a href="#对象转换为原始值" class="headerlink" title="对象转换为原始值"></a>对象转换为原始值</h2><ul>
+<h3 id="对象转换为原始值"><a href="#对象转换为原始值" class="headerlink" title="对象转换为原始值"></a>对象转换为原始值</h3><ul>
 <li><p>对象到布尔值：所有的对象（包括数组和函数）都转换为<code>true</code></p>
   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="literal">false</span>)                  <span class="comment">// 将被转换为true</span></span><br></pre></td></tr></table></figure>
 </li>
@@ -710,7 +710,7 @@
 <li><p>对象到数字的转换中，首先尝试<code>valueOf()</code></p>
 </li>
 </ul>
-<h1 id="变量作用域"><a href="#变量作用域" class="headerlink" title="变量作用域"></a>变量作用域</h1><h2 id="全局作用域与函数作用域"><a href="#全局作用域与函数作用域" class="headerlink" title="全局作用域与函数作用域"></a>全局作用域与函数作用域</h2><pre><code>全局变量具有全局作用域；在函数内声明的变量只在函数体内有定义
+<h2 id="变量作用域"><a href="#变量作用域" class="headerlink" title="变量作用域"></a>变量作用域</h2><h3 id="全局作用域与函数作用域"><a href="#全局作用域与函数作用域" class="headerlink" title="全局作用域与函数作用域"></a>全局作用域与函数作用域</h3><pre><code>全局变量具有全局作用域；在函数内声明的变量只在函数体内有定义
 </code></pre><ul>
 <li><p>在函数体内，局部变量的优先级高于同名的全局变量</p>
   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> scope = <span class="string">'asd'</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> scope = <span class="string">'qwe'</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(scope);</span><br><span class="line">    <span class="keyword">return</span> scope;</span><br><span class="line">&#125;</span><br><span class="line">f();                                <span class="comment">// =&gt; qwe</span></span><br><span class="line"><span class="built_in">console</span>.log(scope);                 <span class="comment">// =&gt; asd</span></span><br></pre></td></tr></table></figure>
@@ -719,7 +719,7 @@
   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">scope = <span class="string">'asd'</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    scope = <span class="string">'qwe'</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(scope);</span><br><span class="line">    <span class="keyword">return</span> scope;</span><br><span class="line">&#125;</span><br><span class="line">f();                                <span class="comment">// =&gt; qwe</span></span><br><span class="line"><span class="built_in">console</span>.log(scope);                 <span class="comment">// =&gt; qwe</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="函数作用域和声明提前"><a href="#函数作用域和声明提前" class="headerlink" title="函数作用域和声明提前"></a>函数作用域和声明提前</h2><ul>
+<h3 id="函数作用域和声明提前"><a href="#函数作用域和声明提前" class="headerlink" title="函数作用域和声明提前"></a>函数作用域和声明提前</h3><ul>
 <li><p>JavaScript没有块级作用域</p>
 </li>
 <li><p>函数作用域：变量在声明他们的函数体以及这个函数体嵌套的任意函数体内都是有定义的</p>
@@ -922,7 +922,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript的数据类型"><span class="nav-number">1.</span> <span class="nav-text">JavaScript的数据类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数字"><span class="nav-number">2.</span> <span class="nav-text">数字</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#整型"><span class="nav-number">2.1.</span> <span class="nav-text">整型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浮点型"><span class="nav-number">2.2.</span> <span class="nav-text">浮点型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运算"><span class="nav-number">2.3.</span> <span class="nav-text">运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二进制浮点数和四舍五入错误"><span class="nav-number">2.4.</span> <span class="nav-text">二进制浮点数和四舍五入错误</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日期和时间"><span class="nav-number">2.5.</span> <span class="nav-text">日期和时间</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串"><span class="nav-number">3.</span> <span class="nav-text">字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串直接量"><span class="nav-number">3.1.</span> <span class="nav-text">字符串直接量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串的使用"><span class="nav-number">3.2.</span> <span class="nav-text">字符串的使用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#布尔值"><span class="nav-number">4.</span> <span class="nav-text">布尔值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#null和undefined"><span class="nav-number">5.</span> <span class="nav-text">null和undefined</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#全局对象"><span class="nav-number">6.</span> <span class="nav-text">全局对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#包装对象"><span class="nav-number">7.</span> <span class="nav-text">包装对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#不可变的原始值和可变的对象引用"><span class="nav-number">8.</span> <span class="nav-text">不可变的原始值和可变的对象引用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原始值"><span class="nav-number">8.1.</span> <span class="nav-text">原始值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象"><span class="nav-number">8.2.</span> <span class="nav-text">对象</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#类型转换"><span class="nav-number">9.</span> <span class="nav-text">类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原始值的转换"><span class="nav-number">9.1.</span> <span class="nav-text">原始值的转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#显式类型转换"><span class="nav-number">9.2.</span> <span class="nav-text">显式类型转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象转换为原始值"><span class="nav-number">9.3.</span> <span class="nav-text">对象转换为原始值</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#变量作用域"><span class="nav-number">10.</span> <span class="nav-text">变量作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#全局作用域与函数作用域"><span class="nav-number">10.1.</span> <span class="nav-text">全局作用域与函数作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数作用域和声明提前"><span class="nav-number">10.2.</span> <span class="nav-text">函数作用域和声明提前</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript的数据类型"><span class="nav-number">1.</span> <span class="nav-text">JavaScript的数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数字"><span class="nav-number">2.</span> <span class="nav-text">数字</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#整型"><span class="nav-number">2.1.</span> <span class="nav-text">整型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浮点型"><span class="nav-number">2.2.</span> <span class="nav-text">浮点型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运算"><span class="nav-number">2.3.</span> <span class="nav-text">运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二进制浮点数和四舍五入错误"><span class="nav-number">2.4.</span> <span class="nav-text">二进制浮点数和四舍五入错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#日期和时间"><span class="nav-number">2.5.</span> <span class="nav-text">日期和时间</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串"><span class="nav-number">3.</span> <span class="nav-text">字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串直接量"><span class="nav-number">3.1.</span> <span class="nav-text">字符串直接量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串的使用"><span class="nav-number">3.2.</span> <span class="nav-text">字符串的使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#布尔值"><span class="nav-number">4.</span> <span class="nav-text">布尔值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null和undefined"><span class="nav-number">5.</span> <span class="nav-text">null和undefined</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全局对象"><span class="nav-number">6.</span> <span class="nav-text">全局对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#包装对象"><span class="nav-number">7.</span> <span class="nav-text">包装对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不可变的原始值和可变的对象引用"><span class="nav-number">8.</span> <span class="nav-text">不可变的原始值和可变的对象引用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原始值"><span class="nav-number">8.1.</span> <span class="nav-text">原始值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象"><span class="nav-number">8.2.</span> <span class="nav-text">对象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类型转换"><span class="nav-number">9.</span> <span class="nav-text">类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原始值的转换"><span class="nav-number">9.1.</span> <span class="nav-text">原始值的转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显式类型转换"><span class="nav-number">9.2.</span> <span class="nav-text">显式类型转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象转换为原始值"><span class="nav-number">9.3.</span> <span class="nav-text">对象转换为原始值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量作用域"><span class="nav-number">10.</span> <span class="nav-text">变量作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#全局作用域与函数作用域"><span class="nav-number">10.1.</span> <span class="nav-text">全局作用域与函数作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数作用域和声明提前"><span class="nav-number">10.2.</span> <span class="nav-text">函数作用域和声明提前</span></a></li></ol></li></ol></div>
             
 
           </div>
