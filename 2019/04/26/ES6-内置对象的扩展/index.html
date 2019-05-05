@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="天赋创新的blog">
 <meta property="og:description" content="字符串的扩展新增方法确定包含关系 includes(): 返回布尔值，表示是否找到了参数字符串，支持第二个参数，表示开始搜索的位置 12&apos;hello world&apos;.includes(&apos;llo&apos;)                 // =&amp;gt; true&apos;hello world&apos;.includes(&apos;llo&apos;, 5)              // =&amp;gt; false  startsWith(">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-02T13:35:46.363Z">
+<meta property="og:updated_time" content="2019-05-05T14:46:33.148Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6-内置对象类型的扩展">
 <meta name="twitter:description" content="字符串的扩展新增方法确定包含关系 includes(): 返回布尔值，表示是否找到了参数字符串，支持第二个参数，表示开始搜索的位置 12&apos;hello world&apos;.includes(&apos;llo&apos;)                 // =&amp;gt; true&apos;hello world&apos;.includes(&apos;llo&apos;, 5)              // =&amp;gt; false  startsWith(">
@@ -338,8 +338,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-05-02T21:35:46+08:00">
-                2019-05-02
+              <time title="更新于" itemprop="dateModified" datetime="2019-05-05T22:46:33+08:00">
+                2019-05-05
               </time>
             
           </span>
@@ -597,6 +597,8 @@
 </ul>
 <h3 id="Array-from"><a href="#Array-from" class="headerlink" title="Array.from()"></a>Array.from()</h3><p><code>Array.from()</code>方法可以将类似数组的对象和可遍历对象转为数组</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arrayLike = &#123;</span><br><span class="line">  <span class="string">'0'</span>: <span class="string">'a'</span>,</span><br><span class="line">  <span class="string">'1'</span>: <span class="string">'b'</span>,</span><br><span class="line">  <span class="string">'2'</span>: <span class="string">'c'</span>,</span><br><span class="line">  length: <span class="number">3</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ES5写法</span></span><br><span class="line"><span class="keyword">var</span> arr1 = [].slice.call(arrayLike);      <span class="comment">// =&gt; ['a', 'b', 'c']</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ES6写法</span></span><br><span class="line"><span class="keyword">var</span> arr2 = <span class="built_in">Array</span>.from(arrayLike);         <span class="comment">// =&gt; ['a', 'b', 'c']</span></span><br></pre></td></tr></table></figure>
+<p>扩展运算符背后调用的是遍历器接口<code>Symbol.iterator</code>，如果没有该接口则无法转换</p>
+<p><code>Array.from</code>同时还支持任何有<code>length</code>属性的对象</p>
 <h2 id="对象的扩展"><a href="#对象的扩展" class="headerlink" title="对象的扩展"></a>对象的扩展</h2><h2 id="函数的扩展"><a href="#函数的扩展" class="headerlink" title="函数的扩展"></a>函数的扩展</h2>
       
     </div>
