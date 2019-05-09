@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="前端,网络,">
+  <meta name="keywords" content="前端,JavaScript,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="HTTP获取服务器资源步骤 浏览器从URL中解析出服务器的主机名  浏览器将服务器的主机名转换成服务器的IP地址  浏览器将端口号（如果有的话）从URL中解析出来  浏览器建立一条与web服务器的TCP连接  浏览器向服务器发送一条HTTP请求报文  服务器向浏览器回送一条HTTP响应报文  关闭连接，浏览器显示文档   状态码分类与常见状态码状态码分类    整体范围 分类     1** 信息">
-<meta name="keywords" content="前端,网络">
+<meta name="description" content="概念函数对象可以通过作用域链相互关联起来，函数体内部的变量都可以保存在函数作用域内 Javascript允许嵌套内部函数—即函数定义和函数表达式位于另一个函数的函数体内。而且，这些内部函数可以访问它们所在的外部函数中声明的所有局部变量、参数和声明的其他内部函数。当其中一个这样的内部函数在包含它们的外部函数之外被调用时，就会形成闭包。 实例： 12345678910var scope = &apos;glob">
+<meta name="keywords" content="前端,JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HTTP常见知识点">
-<meta property="og:url" content="http://yoursite.com/2019/03/30/HTTP-notes/index.html">
+<meta property="og:title" content="闭包">
+<meta property="og:url" content="http://yoursite.com/2019/05/09/闭包/index.html">
 <meta property="og:site_name" content="天赋创新的blog">
-<meta property="og:description" content="HTTP获取服务器资源步骤 浏览器从URL中解析出服务器的主机名  浏览器将服务器的主机名转换成服务器的IP地址  浏览器将端口号（如果有的话）从URL中解析出来  浏览器建立一条与web服务器的TCP连接  浏览器向服务器发送一条HTTP请求报文  服务器向浏览器回送一条HTTP响应报文  关闭连接，浏览器显示文档   状态码分类与常见状态码状态码分类    整体范围 分类     1** 信息">
+<meta property="og:description" content="概念函数对象可以通过作用域链相互关联起来，函数体内部的变量都可以保存在函数作用域内 Javascript允许嵌套内部函数—即函数定义和函数表达式位于另一个函数的函数体内。而且，这些内部函数可以访问它们所在的外部函数中声明的所有局部变量、参数和声明的其他内部函数。当其中一个这样的内部函数在包含它们的外部函数之外被调用时，就会形成闭包。 实例： 12345678910var scope = &apos;glob">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-03T13:12:25.270Z">
+<meta property="og:updated_time" content="2019-05-09T07:34:39.522Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HTTP常见知识点">
-<meta name="twitter:description" content="HTTP获取服务器资源步骤 浏览器从URL中解析出服务器的主机名  浏览器将服务器的主机名转换成服务器的IP地址  浏览器将端口号（如果有的话）从URL中解析出来  浏览器建立一条与web服务器的TCP连接  浏览器向服务器发送一条HTTP请求报文  服务器向浏览器回送一条HTTP响应报文  关闭连接，浏览器显示文档   状态码分类与常见状态码状态码分类    整体范围 分类     1** 信息">
+<meta name="twitter:title" content="闭包">
+<meta name="twitter:description" content="概念函数对象可以通过作用域链相互关联起来，函数体内部的变量都可以保存在函数作用域内 Javascript允许嵌套内部函数—即函数定义和函数表达式位于另一个函数的函数体内。而且，这些内部函数可以访问它们所在的外部函数中声明的所有局部变量、参数和声明的其他内部函数。当其中一个这样的内部函数在包含它们的外部函数之外被调用时，就会形成闭包。 实例： 12345678910var scope = &apos;glob">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/30/HTTP-notes/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/09/闭包/">
 
 
 
 
 
-  <title>HTTP常见知识点 | 天赋创新的blog</title>
+  <title>闭包 | 天赋创新的blog</title>
   
 
 
@@ -293,7 +293,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/30/HTTP-notes/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/09/闭包/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="tfcx">
@@ -310,7 +310,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">HTTP常见知识点</h1>
+          <h1 class="post-title" itemprop="name headline">闭包</h1>
         
 
         <div class="post-meta">
@@ -322,8 +322,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-30T00:00:00+08:00">
-                2019-03-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-09T00:00:00+08:00">
+                2019-05-09
               </time>
             
 
@@ -338,8 +338,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-04-03T21:12:25+08:00">
-                2019-04-03
+              <time title="更新于" itemprop="dateModified" datetime="2019-05-09T15:34:39+08:00">
+                2019-05-09
               </time>
             
           </span>
@@ -357,8 +357,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">学习笔记</span>
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
                   </a>
                 </span>
 
@@ -368,8 +368,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/网络/" itemprop="url" rel="index">
-                    <span itemprop="name">网络</span>
+                  <a href="/categories/前端/JavaScript基础知识/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript基础知识</span>
                   </a>
                 </span>
 
@@ -405,76 +405,11 @@
       
 
       
-        <h1 id="HTTP获取服务器资源步骤"><a href="#HTTP获取服务器资源步骤" class="headerlink" title="HTTP获取服务器资源步骤"></a>HTTP获取服务器资源步骤</h1><ul>
-<li><p>浏览器从URL中解析出服务器的主机名</p>
-</li>
-<li><p>浏览器将服务器的主机名转换成服务器的IP地址</p>
-</li>
-<li><p>浏览器将端口号（如果有的话）从URL中解析出来</p>
-</li>
-<li><p>浏览器建立一条与web服务器的TCP连接</p>
-</li>
-<li><p>浏览器向服务器发送一条HTTP请求报文</p>
-</li>
-<li><p>服务器向浏览器回送一条HTTP响应报文</p>
-</li>
-<li><p>关闭连接，浏览器显示文档</p>
-</li>
-</ul>
-<h1 id="状态码分类与常见状态码"><a href="#状态码分类与常见状态码" class="headerlink" title="状态码分类与常见状态码"></a>状态码分类与常见状态码</h1><h2 id="状态码分类"><a href="#状态码分类" class="headerlink" title="状态码分类"></a>状态码分类</h2><div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center">整体范围</th>
-<th style="text-align:center">分类</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">1**</td>
-<td style="text-align:center">信息提示，请求已被接受，需要继续处理</td>
-</tr>
-<tr>
-<td style="text-align:center">2**</td>
-<td style="text-align:center">成功，请求已成功被服务器接收、理解、接受</td>
-</tr>
-<tr>
-<td style="text-align:center">3**</td>
-<td style="text-align:center">重定向，需要客户端采取进一步的操作</td>
-</tr>
-<tr>
-<td style="text-align:center">4**</td>
-<td style="text-align:center">客户端错误</td>
-</tr>
-<tr>
-<td style="text-align:center">5**</td>
-<td style="text-align:center">服务器错误</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h2 id="常见状态码"><a href="#常见状态码" class="headerlink" title="常见状态码"></a>常见状态码</h2><ul>
-<li><p>200——OK，请求成功</p>
-</li>
-<li><p>301——Moved Permanently，资源（网页等）被永久转移到其他URL</p>
-</li>
-<li><p>302——Found，307——Temporary Redirect，临时重定向，请求的文档被临时移动别处</p>
-</li>
-<li><p>304——Not Modified，未修改，表示客户端缓存的版本是最近的</p>
-</li>
-<li><p>401——Unauthorized，请求要求用户的身份认证</p>
-</li>
-<li><p>403——Forbidden，禁止，服务器理解客户端请求，但是拒绝处理此请求，通常是权设置所致</p>
-</li>
-<li><p>404——Not Found，请求的资源（网页等）不存在</p>
-</li>
-<li><p>500——Internal Server Error——内部服务器错误</p>
-</li>
-<li><p>502——Bad Gateway，充当网关或代理的服务器从远端服务器接收到了一个无效的请求</p>
-</li>
-<li><p>504——Gateway Time-out，充当网关或代理的服务器，未及时从远端服务器获取请求</p>
-</li>
-</ul>
+        <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>函数对象可以通过作用域链相互关联起来，函数体内部的变量都可以保存在函数作用域内</p>
+<p>Javascript允许嵌套内部函数—即函数定义和函数表达式位于另一个函数的函数体内。而且，这些内部函数可以访问它们所在的外部函数中声明的所有局部变量、参数和声明的其他内部函数。当其中一个这样的内部函数在包含它们的外部函数之外被调用时，就会形成闭包。</p>
+<p>实例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> scope = <span class="string">'global'</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkScope</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> scope = <span class="string">'local'</span>;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(scope);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> func = checkScope();</span><br><span class="line">func();                         <span class="comment">// =&gt; local</span></span><br></pre></td></tr></table></figure>
+<p>JavaScript中的函数会形成闭包。这个环境包含了这个闭包创建时所能访问的所有局部变量。在我们的例子中，<code>checkScope</code>返回的是内部函数<code>f</code>本身，<code>func</code>是<code>f</code>函数的引用，而<code>f</code>仍可访问其词法作用域中的变量，即可以访问到<code>checkScope</code>作用域内定义的<code>scope</code>。由此，当<code>func</code>被调用时，<code>checkScope</code>中的<code>scope</code>仍可被访问</p>
 
       
     </div>
@@ -494,7 +429,7 @@
           
             <a href="/tags/前端/" rel="tag"># 前端</a>
           
-            <a href="/tags/网络/" rel="tag"># 网络</a>
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
           
         </div>
       
@@ -507,8 +442,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/29/Type&value&variable/" rel="next" title="JavaScript的类型、值和变量">
-                <i class="fa fa-chevron-left"></i> JavaScript的类型、值和变量
+              <a href="/2019/05/06/CSS长度单位/" rel="next" title="CSS长度单位">
+                <i class="fa fa-chevron-left"></i> CSS长度单位
               </a>
             
           </div>
@@ -516,10 +451,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/31/setInterval动态设置时间间隔/" rel="prev" title="setInterval动态设置时间间隔">
-                setInterval动态设置时间间隔 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -669,7 +600,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP获取服务器资源步骤"><span class="nav-number">1.</span> <span class="nav-text">HTTP获取服务器资源步骤</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#状态码分类与常见状态码"><span class="nav-number">2.</span> <span class="nav-text">状态码分类与常见状态码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#状态码分类"><span class="nav-number">2.1.</span> <span class="nav-text">状态码分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见状态码"><span class="nav-number">2.2.</span> <span class="nav-text">常见状态码</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a></li></ol></div>
             
 
           </div>
