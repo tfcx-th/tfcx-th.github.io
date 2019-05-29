@@ -1,0 +1,141 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.8.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="前端小码农~"><title>测试驱动开发 | 天赋创新的blog</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.0/jquery.min.js"></script><link rel="icon" mask sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">测试驱动开发</h1><a id="logo" href="/.">天赋创新的blog</a><p class="description"></p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">测试驱动开发</h1><div class="post-meta">May 29, 2019<span> | </span><span class="category"><a href="/categories/测试/">测试</a></span></div><div class="clear"><div class="toc-article" id="toc"><div class="toc-title">文章目录</div><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是TDD"><span class="toc-number">1.</span> <span class="toc-text">什么是TDD</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#定义"><span class="toc-number">1.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#出处"><span class="toc-number">1.2.</span> <span class="toc-text">出处</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#广义与狭义的TDD"><span class="toc-number">1.3.</span> <span class="toc-text">广义与狭义的TDD</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TDD的三层含义"><span class="toc-number">1.4.</span> <span class="toc-text">TDD的三层含义</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么要TDD"><span class="toc-number">2.</span> <span class="toc-text">为什么要TDD</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#传统的编码方式"><span class="toc-number">2.1.</span> <span class="toc-text">传统的编码方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TDD编码方式"><span class="toc-number">2.2.</span> <span class="toc-text">TDD编码方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TDD的好处"><span class="toc-number">2.3.</span> <span class="toc-text">TDD的好处</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何TDD"><span class="toc-number">3.</span> <span class="toc-text">如何TDD</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注意事项"><span class="toc-number">4.</span> <span class="toc-text">注意事项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FAQ"><span class="toc-number">5.</span> <span class="toc-text">FAQ</span></a></li></ol></div></div><div class="post-content"><p>本文为在“thoughtworks编程体验之旅”学习过程中中关于TDD的学习笔记</p>
+<h2 id="什么是TDD"><a href="#什么是TDD" class="headerlink" title="什么是TDD"></a>什么是TDD</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>一种不同于传统软件开发流程的新型的开发方法。他要求在编写某个功能的代码之前先编写测试代码，然后只编写使测试通过的功能代码，通过测试来推动整个开发的进行。这有助于编写简介可用和高质量的代码，并加速开发过程。</p>
+<h3 id="出处"><a href="#出处" class="headerlink" title="出处"></a>出处</h3><p>测试驱动开发出自极限编程（Extreme Programming，XP）</p>
+<ul>
+<li><p>个人开发者的实践</p>
+<p>结对编程（Pair programming）</p>
+<p>测试驱动开发（Testing-Driven Development）</p>
+<p>重构（Refactoring）</p>
+<p>简单设计（Simple Design）</p>
+</li>
+<li><p>团队层面的实践</p>
+<p>代码集体所有权（Collective Code Ownership）</p>
+<p>编码规范（Code Standards）</p>
+<p>系统隐喻（System Metaphor）</p>
+<p>持续集成（Continuous Integration）</p>
+<p>可持续的开发节奏（sustainable pace）</p>
+</li>
+<li><p>项目交付层面的实践</p>
+<p>小型发布（Small Release）</p>
+<p>客户测试（Customer Tests）</p>
+<p>团队协作（Whole Team）</p>
+<p>规划策略（The Planning Game）</p>
+</li>
+</ul>
+<h3 id="广义与狭义的TDD"><a href="#广义与狭义的TDD" class="headerlink" title="广义与狭义的TDD"></a>广义与狭义的TDD</h3><p>TDD有广义和狭义之分</p>
+<ul>
+<li><p>狭义的TDD: UTDD(Unit Test Driven Development)</p>
+</li>
+<li><p>广义的TDD: ATDD(Acceptance Test Driven Development), 包括BDD（Behavior Driven Development）和 Consumer-Driven Contracts Development 等。</p>
+</li>
+</ul>
+<h3 id="TDD的三层含义"><a href="#TDD的三层含义" class="headerlink" title="TDD的三层含义"></a>TDD的三层含义</h3><ul>
+<li><p>Test-Driven Development，测试驱动开发</p>
+</li>
+<li><p>Task-Driven Development，任务驱动开发，要对问题进行分析并进行任务分解</p>
+</li>
+<li><p>Test-Driven Design，测试保护下的设计改善。TDD 并不能直接提高设计能力，它只是给你更多机会和保障去改善设计</p>
+</li>
+</ul>
+<h2 id="为什么要TDD"><a href="#为什么要TDD" class="headerlink" title="为什么要TDD"></a>为什么要TDD</h2><h3 id="传统的编码方式"><a href="#传统的编码方式" class="headerlink" title="传统的编码方式"></a>传统的编码方式</h3><ul>
+<li><p>需求分析，想不清楚细节，管他呢，先开始写</p>
+</li>
+<li><p>发现需求细节不明确，去跟业务人员确认</p>
+</li>
+<li><p>确认好几次终于写完所有逻辑</p>
+</li>
+<li><p>运行起来测试一下，靠，果然不工作，调试</p>
+</li>
+<li><p>调试好久终于工作了</p>
+</li>
+<li><p>转测试，QA 测出 bug，debug， 打补丁</p>
+</li>
+<li><p>终于，代码可以工作了</p>
+</li>
+<li><p>一看代码烂的像坨屎，不敢动，动了还得手工测试，还得让 QA 测试，还得加班…</p>
+</li>
+</ul>
+<h3 id="TDD编码方式"><a href="#TDD编码方式" class="headerlink" title="TDD编码方式"></a>TDD编码方式</h3><ul>
+<li><p>先分解任务，分离关注点</p>
+</li>
+<li><p>列Example，用实例化需求，澄清需求细节</p>
+</li>
+<li><p>写测试，只关注需求，程序的输入输出，不关心中间过程</p>
+</li>
+<li><p>写实现，不考虑别的需求，用最简单的方式满足当前这个小需求即可</p>
+</li>
+<li><p>重构，用手法消除代码里的坏味道</p>
+</li>
+<li><p>写完，手动测试一下，基本没什么问题，有问题补个用例，修复</p>
+</li>
+<li><p>转测试，小问题，补用例，修复</p>
+</li>
+<li><p>代码整洁且用例齐全，信心满满地提交</p>
+</li>
+</ul>
+<h3 id="TDD的好处"><a href="#TDD的好处" class="headerlink" title="TDD的好处"></a>TDD的好处</h3><ul>
+<li><p>效率更高</p>
+<p>提前确认需求，减少开发中的中断和等待</p>
+<p>小步快走，节省调试时间</p>
+</li>
+<li><p>质量有保证</p>
+<p>高测试覆盖率</p>
+<p>自动回归测试</p>
+</li>
+</ul>
+<h2 id="如何TDD"><a href="#如何TDD" class="headerlink" title="如何TDD"></a>如何TDD</h2><p>TDD的基本流程是：</p>
+<ol>
+<li><p>快速新增一个测试用例</p>
+</li>
+<li><p>运行所有的测试（有时只需要运行一个或一部分），发现新增的测试不通过</p>
+</li>
+<li><p>做一些小小的改动，尽快地让测试程序可运行，为此可以在程序中使用一些不合情理的方法</p>
+</li>
+<li><p>运行所有的测试，并且全部通过</p>
+</li>
+<li><p>重构代码，以消除重复设计，优化设计结构</p>
+</li>
+</ol>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul>
+<li><p>合理拆分任务</p>
+<p>TDD之前要拆分任务，把一个大需求拆成多个小需求，也可以拆出多个函数来。</p>
+</li>
+<li><p>有效的单元测试</p>
+<p>好的单元测试应该符合几条原则：</p>
+<ul>
+<li><p>简单，只测试一个需求</p>
+</li>
+<li><p>符合 Given-When-Then 格式</p>
+</li>
+<li><p>速度快</p>
+</li>
+<li><p>包含断言</p>
+</li>
+<li><p>可以重复执行</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>写刚好的实现</p>
+<p>专注当前需求，不要把其他需求也实现了，不这样会破坏节奏感，实现的时候要小步快走。</p>
+</li>
+<li><p>重构</p>
+<p>了解什么是<code>Clean Code</code>，要看得出代码的<code>Smell</code>，用合适的「手法」消除 Smell。没有及时重构，等想要重构时已经难以下手了。</p>
+</li>
+<li><p>基础设施</p>
+<p>对于特定技术栈，把单元测试基础设施搭建好，写测试时就可以专注在测试用例上。</p>
+</li>
+</ul>
+<h2 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h2><ol>
+<li><p>明明知道测试会失败，为什么还要运行一下？</p>
+<p>程序并不只有成功和失败两种情况，成功只有一种，然而，失败有无数多种，运行测试才能保证当前的失败是你期望的失败。</p>
+</li>
+<li><p>小步好，但真的要小步到这个程度吗？</p>
+<p>练习过程中应该尽量小步；实际工作中可以先大步，遇到问题再切换为小步</p>
+</li>
+<li><p>测试覆盖率多少合适？</p>
+<p>开始学习时尽量追求100%以分辨什么样的测试好写，什么不好写</p>
+</li>
+</ol>
+</div><div class="tags"><a href="/tags/测试/">测试</a><a href="/tags/软件工程思想/">软件工程思想</a></div><div class="post-nav"><a class="next" href="/2019/05/27/git常用指令/">git常用指令</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.baidu.com/baidu" method="get" accept-charset="utf-8" target="_blank"><input type="search" name="word" maxlength="20" placeholder="Search"><input type="hidden" name="si" value="http://yoursite.com"><input name="tn" type="hidden" value="bds"><input name="cl" type="hidden" value="3"><input name="ct" type="hidden" value="2097152"><input name="s" type="hidden" value="on"></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/DevTools/">DevTools</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/可视化/">可视化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/测试/">测试</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/网络/">网络</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/ES6/" style="font-size: 15px;">ES6</a> <a href="/tags/HTML-CSS/" style="font-size: 15px;">HTML&CSS</a> <a href="/tags/网络/" style="font-size: 15px;">网络</a> <a href="/tags/DevTools/" style="font-size: 15px;">DevTools</a> <a href="/tags/前端/" style="font-size: 15px;">前端</a> <a href="/tags/可视化/" style="font-size: 15px;">可视化</a> <a href="/tags/《Data-Visualization-with-JavaScript》/" style="font-size: 15px;">《Data Visualization with JavaScript》</a> <a href="/tags/算法/" style="font-size: 15px;">算法</a> <a href="/tags/动态规划/" style="font-size: 15px;">动态规划</a> <a href="/tags/测试/" style="font-size: 15px;">测试</a> <a href="/tags/软件工程思想/" style="font-size: 15px;">软件工程思想</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/05/29/测试驱动开发简介/">测试驱动开发</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/27/git常用指令/">git常用指令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/14/HTML5本地存储/">HTML5的本地存储</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/11/call、apply & bind/">call()、apply() & bind()</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/09/闭包/">闭包</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/06/CSS长度单位/">CSS长度单位</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/04/HTML表格的布局与样式/">HTML表格的布局与样式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/03/HTML中的meta标签/">HTML中的meta标签</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/29/JavaScript事件中的防抖和节流/">JavaScript事件中的防抖和节流</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/26/ES6-内置对象的扩展/">ES6-内置对象类型的扩展</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://github.com/tfcx-th" title="天赋创新的GitHub" target="_blank">天赋创新的GitHub</a><ul></ul><a href="mailto:tonghao_xjtu@qq.com" title="天赋创新的邮箱" target="_blank">天赋创新的邮箱</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2019 <a href="/." rel="nofollow">天赋创新的blog.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
