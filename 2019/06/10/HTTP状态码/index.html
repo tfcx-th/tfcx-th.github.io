@@ -1,0 +1,99 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.8.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="前端小码农~"><title>HTTP状态码 | 天赋创新的blog</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.0/jquery.min.js"></script><link rel="icon" mask sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">HTTP状态码</h1><a id="logo" href="/.">天赋创新的blog</a><p class="description"></p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">HTTP状态码</h1><div class="post-meta">Jun 10, 2019<span> | </span><span class="category"><a href="/categories/网络/">网络</a></span></div><div class="post-content"><style>
+  table {
+    border-collapse: collapse;
+  }
+  table th {
+    border: none;
+  }
+  th, td {
+    padding: 1em 2em;
+  }
+  th {
+    width: 3em;
+    text-align: center;
+  }
+  thead th {
+    border-top: 2px solid #000000;
+    border-bottom: 1px solid #000000;
+  }
+  tbody:last-child th, tbody:last-child td {
+    border-bottom: 2px solid #000000;
+  }
+</style>
+
+<p>HTTP状态码被分成了五大类，分别以1、2、3、4、5开头，分别为</p>
+<ul>
+<li><p><a href="#1">100 ~ 199 —— 信息性状态码</a></p>
+</li>
+<li><p><a href="#2">200 ~ 299 —— 成功状态码</a></p>
+</li>
+<li><p><a href="#3">300 ~ 399 —— 重定向状态码</a></p>
+</li>
+<li><p><a href="#4">400 ~ 499 —— 客户端错误状态码</a></p>
+</li>
+<li><p><a href="#5">500 ~ 599 —— 服务器错误状态码</a></p>
+</li>
+</ul>
+<h2 id="100-199-——-信息性状态码"><a href="#100-199-——-信息性状态码" class="headerlink" title="100 ~ 199 —— 信息性状态码"></a><a name="1">100 ~ 199 —— 信息性状态码</a></h2><table>
+  <thead>
+    <th>状态码</th>
+    <th>原因短语</th>
+    <th>含义</th>
+  </thead>
+  <tbody>
+    <th>100</th>
+    <td>Continue</td>
+    <td>说明收到了请求的初始部分，请客户端继续。发送这个状态码之后，服务器在收到请求之后必须进行响应。</td>
+  </tbody>
+  <tbody>
+    <th>101</th>
+    <td>Switching Protocols</td>
+    <td>说明服务器正在根据客户端的指定，将协议切换成Update首部所列的协议</td>
+  </tbody>
+</table>
+
+<h2 id="200-299-——-成功状态码"><a href="#200-299-——-成功状态码" class="headerlink" title="200 ~ 299 —— 成功状态码"></a><a name="2">200 ~ 299 —— 成功状态码</a></h2><table>
+  <thead>
+    <th>状态码</th>
+    <th>原因短语</th>
+    <th>含义</th>
+  </thead>
+  <tbody>
+    <th>200</th>
+    <td>OK</td>
+    <td>请求没问题，实体的主体部分包含了所请求的资源</td>
+  </tbody>
+  <tbody>
+    <th>201</th>
+    <td>Created</td>
+    <td>用于创建服务器对象的请求。响应的实体部分中应该包含各种引用了已创建的资源的URL，Location首部包含的则是最具体的引用。<br>服务器必须在发送这个状态码之前创建好对象</td>
+  </tbody>
+  <tbody>
+    <th>202</th>
+    <td>Accepted</td>
+    <td>请求已被接受。但服务器还未对其执行任何动作。不能保证服务器会完成这个请求。<br>服务器应该在实体的主体部分包含对请求状态的描述，或许还应该有对请求完成时间的估计</td>
+  </tbody>
+  <tbody>
+    <th>203</th>
+    <td>Non-Authoritative Infomation</td>
+    <td>实体首部包含的信息不是来自于源端服务器，而是来自资源的一份副本。如果中间节点上有一份资源副本，但无法或者没有对它所发送的与资源有关的元信息进行验证，就会出现这种情况。<br>这种响应码不是非用不可的；如果实体首部来自源端服务器，响应为200状态的程序就可以将其作为一种可选项使用。</td>
+  </tbody>
+  <tbody>
+    <th>204</th>
+    <td>No Content</td>
+    <td>响应报文中包含若干个首部和一个状态行，但没有实体的主体部分。主要用于在浏览器不转为显示新文档的情况下，对其进行更新</td>
+  </tbody>
+  <tbody>
+    <th>205</th>
+    <td>Reset Content</td>
+    <td>主要用于浏览器的代码，负责告知浏览器清除当前页面中的所有HTML表单元素</td>
+  </tbody>
+  <tbody>
+    <th>101</th>
+    <td>Switching Protocols</td>
+    <td>说明服务器正在根据客户端的指定，将协议切换成Update首部所列的协议</td>
+  </tbody>
+</table>
+
+
+<h2 id="300-399-——-重定向状态码"><a href="#300-399-——-重定向状态码" class="headerlink" title="300 ~ 399 —— 重定向状态码"></a><a name="3">300 ~ 399 —— 重定向状态码</a></h2><h2 id="400-499-——-客户端错误状态码"><a href="#400-499-——-客户端错误状态码" class="headerlink" title="400 ~ 499 —— 客户端错误状态码"></a><a name="4">400 ~ 499 —— 客户端错误状态码</a></h2><h2 id="500-599-——-服务器错误状态码"><a href="#500-599-——-服务器错误状态码" class="headerlink" title="500 ~ 599 —— 服务器错误状态码"></a><a name="5">500 ~ 599 —— 服务器错误状态码</a></h2></div><div class="tags"><a href="/tags/前端/">前端</a><a href="/tags/网络/">网络</a></div><div class="post-nav"><a class="next" href="/2019/06/08/《CSS揭秘》读书笔记（一）：背景和边框/">《CSS揭秘》读书笔记（一）：背景和边框</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.baidu.com/baidu" method="get" accept-charset="utf-8" target="_blank"><input type="search" name="word" maxlength="20" placeholder="Search"><input type="hidden" name="si" value="http://yoursite.com"><input name="tn" type="hidden" value="bds"><input name="cl" type="hidden" value="3"><input name="ct" type="hidden" value="2097152"><input name="s" type="hidden" value="on"></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/DevTools/">DevTools</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/可视化/">可视化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/测试/">测试</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/网络/">网络</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/算法/" style="font-size: 15px;">算法</a> <a href="/tags/前端/" style="font-size: 15px;">前端</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/ES6/" style="font-size: 15px;">ES6</a> <a href="/tags/网络/" style="font-size: 15px;">网络</a> <a href="/tags/DevTools/" style="font-size: 15px;">DevTools</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/HTML-CSS/" style="font-size: 15px;">HTML&CSS</a> <a href="/tags/可视化/" style="font-size: 15px;">可视化</a> <a href="/tags/《Data-Visualization-with-JavaScript》/" style="font-size: 15px;">《Data Visualization with JavaScript》</a> <a href="/tags/动态规划/" style="font-size: 15px;">动态规划</a> <a href="/tags/测试/" style="font-size: 15px;">测试</a> <a href="/tags/软件工程思想/" style="font-size: 15px;">软件工程思想</a> <a href="/tags/读书笔记/" style="font-size: 15px;">读书笔记</a> <a href="/tags/《CSS揭秘》/" style="font-size: 15px;">《CSS揭秘》</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/06/10/HTTP状态码/">HTTP状态码</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/08/《CSS揭秘》读书笔记（一）：背景和边框/">《CSS揭秘》读书笔记（一）：背景和边框</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/06/JavaScript中的类和继承/">JavaScript中的类和继承</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/29/测试驱动开发简介/">测试驱动开发</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/27/git常用指令/">git常用指令</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/18/ES6-内置对象的扩展（二）/">ES6-内置对象类型的扩展（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/14/HTML5本地存储/">HTML5的本地存储</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/11/call、apply & bind/">call()、apply() & bind()</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/09/闭包/">闭包</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/06/CSS长度单位/">CSS长度单位</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://github.com/tfcx-th" title="天赋创新的GitHub" target="_blank">天赋创新的GitHub</a><ul></ul><a href="mailto:tonghao_xjtu@qq.com" title="天赋创新的邮箱" target="_blank">天赋创新的邮箱</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2019 <a href="/." rel="nofollow">天赋创新的blog.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
