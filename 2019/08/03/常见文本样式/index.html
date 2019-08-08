@@ -123,7 +123,7 @@ function chooseTextAlignStartOrEnd(value) {
 </li>
 <li><p>两端对齐<code>justify</code></p>
 <div id="text-align-test-3">
-  <div>Some of us get dipped in flat, some in satin, some in gloss....But every once in a while you find someone who's iridescent, and when you do, nothing will ever compare.</div>
+  Some of us get dipped in flat, some in satin, some in gloss....But every once in a while you find someone who's iridescent, and when you do, nothing will ever compare.
 </div>
 
 <style>
@@ -142,4 +142,61 @@ function chooseTextAlignStartOrEnd(value) {
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">text-align</span>: justify;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+<p>如果想单独为元素的最后一行设置不同的样式，可以使用<code>text-align-last</code>属性</p>
+<div id="text-align-test-4">
+  <button class="options" onclick="chooseTextAlignLast('left')">left</button>
+  <button class="options" onclick="chooseTextAlignLast('center')">center</button>
+  <button class="options" onclick="chooseTextAlignLast('right')">right</button>
+  <button class="options" onclick="chooseTextAlignLast('justify')">justify</button>
+  <div id="text-align-test-4-text">Some of us get dipped in flat, some in satin, some in gloss.... But every once in a while you find someone who's iridescent, and when you do, nothing will ever compare.</div>
+</div>
+
+<style>
+#text-align-test-4 {
+    margin: 10px calc((100% - 500px) / 2);
+}
+#text-align-test-4 .options {
+    margin: 5px 10px;
+}
+#text-align-test-4-text {
+    padding: 10px 30px;
+    width: 500px;
+    border: 2px solid gray;
+    border-radius: 5px;
+    text-align: justify;
+    font: 100%/1.6 Baskerville, Palatino, serif;
+}
+</style>
+
+<script>
+function chooseTextAlignLast(value) {
+  document.getElementById('text-align-test-4-text').style.textAlignLast = value;
+}
+</script>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>Some of us get dipped in flat, some in satin, some in gloss.... But every once in a while you find someone who's iridescent, and when you do, nothing will ever compare.<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">text-align-last</span>: left;</span><br><span class="line">    <span class="comment">/* text-align-last: center; */</span></span><br><span class="line">    <span class="comment">/* text-align-last: right; */</span></span><br><span class="line">    <span class="comment">/* text-align-last: justify; */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>只要一行后面有强制换行，不管是否在元素末尾，都受<code>text-align-last</code>属性的控制</p>
+<div id="text-align-test-5">
+  Some of us get dipped in flat, some in satin, some in gloss....<br>But every once in a while you find someone who's iridescent, and when you do, nothing will ever compare.
+</div>
+
+<style>
+#text-align-test-5 {
+    margin: 10px calc((100% - 500px) / 2);
+    padding: 10px 30px;
+    width: 500px;
+    border: 2px solid gray;
+    border-radius: 5px;
+    text-align: start;
+    text-align-last: end;
+    font: 100%/1.6 Baskerville, Palatino, serif;
+}
+</style>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  Some of us get dipped in flat, some in satin, some in gloss....<span class="tag">&lt;<span class="name">br</span>&gt;</span>But every once in a while you find someone who's iridescent, and when you do, nothing will ever compare.</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">text-align</span>: start;</span><br><span class="line">    <span class="attribute">text-align-last</span>: end;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>需要注意的是，该属性不支持 Safari</p>
+</blockquote>
 <h3 id="块级文本对齐"><a href="#块级文本对齐" class="headerlink" title="块级文本对齐"></a>块级文本对齐</h3></div><div class="tags"><a href="/tags/前端/">前端</a><a href="/tags/HTML-CSS/">HTML&amp;CSS</a></div><div class="post-nav"><a class="next" href="/2019/07/29/BigInt/">BigInt——JavaScript超出安全整数限制时的计算</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.baidu.com/baidu" method="get" accept-charset="utf-8" target="_blank"><input type="search" name="word" maxlength="20" placeholder="Search"><input type="hidden" name="si" value="http://yoursite.com"><input name="tn" type="hidden" value="bds"><input name="cl" type="hidden" value="3"><input name="ct" type="hidden" value="2097152"><input name="s" type="hidden" value="on"></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/DevTools/">DevTools</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/可视化/">可视化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/测试/">测试</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/网络/">网络</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/可视化/" style="font-size: 15px;">可视化</a> <a href="/tags/前端/" style="font-size: 15px;">前端</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/ES6/" style="font-size: 15px;">ES6</a> <a href="/tags/网络/" style="font-size: 15px;">网络</a> <a href="/tags/Vue/" style="font-size: 15px;">Vue</a> <a href="/tags/前端框架/" style="font-size: 15px;">前端框架</a> <a href="/tags/算法/" style="font-size: 15px;">算法</a> <a href="/tags/HTML-CSS/" style="font-size: 15px;">HTML&CSS</a> <a href="/tags/《Data-Visualization-with-JavaScript》/" style="font-size: 15px;">《Data Visualization with JavaScript》</a> <a href="/tags/动态规划/" style="font-size: 15px;">动态规划</a> <a href="/tags/测试/" style="font-size: 15px;">测试</a> <a href="/tags/软件工程思想/" style="font-size: 15px;">软件工程思想</a> <a href="/tags/DevTools/" style="font-size: 15px;">DevTools</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/读书笔记/" style="font-size: 15px;">读书笔记</a> <a href="/tags/《CSS揭秘》/" style="font-size: 15px;">《CSS揭秘》</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/08/03/常见文本样式/">常见文本样式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/29/BigInt/">BigInt——JavaScript超出安全整数限制时的计算</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/26/《CSS揭秘》读书笔记（三）：视觉效果/">《CSS揭秘》读书笔记（三）：视觉效果</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/22/ES6-Promise/">ES6-Promise</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/18/Vue源码阅读——new Vue/">Vue源码阅读（二）——new Vue</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/15/媒体查询/">媒体查询</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/10/Vue源码阅读——源码目录及构建/">Vue源码阅读（一）——源码目录及构建</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/06/Safari中transform3D变换导致的z-index异常/">Safari中使用transform 3D变换导致的z-index异常</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/03/ES6-Set&Map/">ES6-Set & Map</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/29/《CSS揭秘》读书笔记（二）：形状/">《CSS揭秘》读书笔记（二）：形状</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://github.com/tfcx-th" title="天赋创新的GitHub" target="_blank">天赋创新的GitHub</a><ul></ul><a href="mailto:tonghao_xjtu@qq.com" title="天赋创新的邮箱" target="_blank">天赋创新的邮箱</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2019 <a href="/." rel="nofollow">天赋创新的blog.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
