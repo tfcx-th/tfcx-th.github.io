@@ -1,0 +1,109 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.8.0"><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="前端小码农~"><title>《CSS揭秘》读书笔记（四）：文本 | 天赋创新的blog</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/normalize/8.0.1/normalize.min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/pure/1.0.0/grids-responsive-min.css"><link rel="stylesheet" href="//lib.baomitu.com/font-awesome/4.7.0/css/font-awesome.min.css"><script type="text/javascript" src="//lib.baomitu.com/jquery/3.4.0/jquery.min.js"></script><link rel="icon" mask sizes="any" href="/favicon.ico"><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">《CSS揭秘》读书笔记（四）：文本</h1><a id="logo" href="/.">天赋创新的blog</a><p class="description"></p></div><div id="nav-menu"><a class="current" href="/."><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a></div></div><div class="pure-g" id="layout"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">《CSS揭秘》读书笔记（四）：文本</h1><div class="post-meta">Aug 17, 2019<span> | </span><span class="category"><a href="/categories/前端/">前端</a></span></div><div class="clear"><div class="toc-article" id="toc"><div class="toc-title">文章目录</div><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#换行"><span class="toc-number">1.</span> <span class="toc-text">换行</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#连字符断行"><span class="toc-number">1.1.</span> <span class="toc-text">连字符断行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#定义列表换行"><span class="toc-number">1.2.</span> <span class="toc-text">定义列表换行</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#斑马条纹"><span class="toc-number">2.</span> <span class="toc-text">斑马条纹</span></a></li></ol></div></div><div class="post-content"><h2 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h2><h3 id="连字符断行"><a href="#连字符断行" class="headerlink" title="连字符断行"></a>连字符断行</h3><p>在对文本进行两端对齐时，可能会造成每行单词不一致的结果，可以通过设置<code>hyphens</code>属性来为文本换行时设置连字符</p>
+<p><code>hyphens</code>总共有三种取值：<code>none</code>、<code>manual</code>和<code>auto</code>，其中<code>manual</code>为初始值，表示需要手工插入软连字符<code>&amp;shy;</code></p>
+<div id="hyphens-test" lang="en">
+  <div id="hyphens-test-left">
+    The only way to get rid of a temptation is to yield to it.
+  </div>
+  <div id="hyphens-test-right">
+    The only way to get rid of a temptation is to yield to it.
+  </div>
+</div>
+
+<style>
+#hyphens-test {
+    margin: 10px auto;
+    padding: 0;
+}
+#hyphens-test #hyphens-test-left {
+    display: inline-block;
+    box-sizing: initial;
+    margin: 0 calc((100% - 368px) / 6) 0 calc((100% - 368px) / 3);
+    padding: 10px 30px;
+    width: 120px;
+    border: 2px solid gray;
+    border-radius: 5px;
+    font: 16px/1.6 Baskerville, Palatino, serif;
+    text-align: justify;
+}
+#hyphens-test #hyphens-test-right {
+    display: inline-block;
+    box-sizing: initial;
+    margin: 0 calc((100% - 368px) / 3) 0 calc((100% - 368px) / 6 - 10px);
+    padding: 10px 30px;
+    width: 120px;
+    border: 2px solid gray;
+    border-radius: 5px;
+    font: 16px/1.6 Baskerville, Palatino, serif;
+    text-align: justify;
+    -webkit-hyphens: auto;
+            hyphens: auto;
+}
+</style>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line">  The only way to get rid of a temptation is to yield to it.</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">text-align</span>: justify;</span><br><span class="line">    <span class="attribute">-webkit-hyphens</span>: auto;</span><br><span class="line">            <span class="attribute">hyphens</span>: auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>需要注意的是，在HTML标签中必须设置合适的语言</p>
+<h3 id="定义列表换行"><a href="#定义列表换行" class="headerlink" title="定义列表换行"></a>定义列表换行</h3><p>在定义列表中，我们往往会想要名和值在同一行，然而由于<code>&lt;dt&gt;</code>和<code>&lt;dd&gt;</code>都是块级元素，结果会导致名和值各占一行</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dl</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dt</span>&gt;</span>Name:<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dd</span>&gt;</span>tfcx<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dt</span>&gt;</span>Email:<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dd</span>&gt;</span>tonghao_xjtu@qq.com<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dd</span>&gt;</span>1438994285@qq.com<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dt</span>&gt;</span>Location:<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dd</span>&gt;</span>Xi'an<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dl</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>可以设置紧跟着每个<code>&lt;dd&gt;</code>之后的<code>&lt;dt&gt;</code>的<code>::before</code>伪元素，并且保留空白符和换行</p>
+<p>如果有相邻的<code>&lt;dd&gt;</code>，则需要添加<code>,</code>，并利用负外边距减少逗号前的空格</p>
+<dl id="line-break-test">
+  <dt class="key">Name:</dt>
+  <dd class="value">tfcx</dd>
+  <dt class="key">Email:</dt>
+  <dd class="value">tonghao_xjtu@qq.com</dd>
+  <dd class="value">1438994285@qq.com</dd>
+  <dt class="key">Location:</dt>
+  <dd class="value">Xi'an</dd>
+</dl>
+
+<style>
+#line-break-test {
+    margin: 10px auto;
+    padding: 10px 30px;
+    width: 500px;
+    border: 2px solid gray;
+    border-radius: 5px;
+}
+.key, .value {
+    display: inline;
+}
+.value {
+    margin: 0;
+    font-weight: bold;
+}
+.value + .key::before {
+    content: '\A';
+    white-space: pre;
+}
+.value + .value::before {
+    content: ', ';
+    margin-left: -0.25em;
+    white-space: normal;
+}
+</style>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">dt</span>, <span class="selector-tag">dd</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: inline;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">dd</span> &#123;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">font-weight</span>: bold;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">dd</span> + <span class="selector-tag">dt</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">'\A'</span>;</span><br><span class="line">    <span class="attribute">white-space</span>: pre;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">dd</span> + <span class="selector-tag">dd</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">', '</span>;</span><br><span class="line">    <span class="attribute">margin-left</span>: -<span class="number">0.25em</span>;</span><br><span class="line">    <span class="attribute">white-space</span>: normal;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="斑马条纹"><a href="#斑马条纹" class="headerlink" title="斑马条纹"></a>斑马条纹</h2><p>斑马条纹即文本的每一行交替显示两种背景颜色</p>
+<div id="zebra-lines-test">
+  Some of us get dipped in flat, some in satin, some in gloss ... But every once in a while you find someone who's iridescent, and when you do, nothing will ever compare.
+</div>
+
+<style>
+#zebra-lines-test {
+    margin: 10px auto;
+    padding: 10px 30px;
+    width: 500px;
+    border: 2px solid gray;
+    border-radius: 5px;
+    font: 16px/1.5 Baskerville, Palatino, serif;
+    text-align: justify;
+    background: beige;
+    background-origin: content-box;
+    background-image: linear-gradient(rgba(0, 0, 0, .2) 50%, transparent 0);
+    background-size: auto 3em;
+}
+</style>
+
+<p>可以通过 CSS 渐变生成相应的背景图像，其<code>background-size</code>设置为行高的两倍，并且将<code>background-origin</code>设置为<code>content-box</code>以使背景以<code>content-box</code>的外沿为基准</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">1.5</span>;</span><br><span class="line">    <span class="attribute">background</span>: beige;</span><br><span class="line">    <span class="attribute">background-origin</span>: content-box;</span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">linear-gradient</span>(rgba(0, 0, 0, .2) <span class="number">50%</span>, transparent <span class="number">0</span>);</span><br><span class="line">    <span class="attribute">background-size</span>: auto <span class="number">3em</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div><div class="tags"><a href="/tags/前端/">前端</a><a href="/tags/HTML-CSS/">HTML&amp;CSS</a><a href="/tags/读书笔记/">读书笔记</a><a href="/tags/《CSS揭秘》/">《CSS揭秘》</a></div><div class="post-nav"><a class="next" href="/2019/08/12/决策树/">决策树</a></div></div></div></div><div class="pure-u-1-4 hidden_mid_and_down"><div id="sidebar"><div class="widget"><form class="search-form" action="//www.baidu.com/baidu" method="get" accept-charset="utf-8" target="_blank"><input type="search" name="word" maxlength="20" placeholder="Search"><input type="hidden" name="si" value="http://yoursite.com"><input name="tn" type="hidden" value="bds"><input name="cl" type="hidden" value="3"><input name="ct" type="hidden" value="2097152"><input name="s" type="hidden" value="on"></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/DevTools/">DevTools</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/可视化/">可视化</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/机器学习/">机器学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/测试/">测试</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/网络/">网络</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/《Data-Visualization-with-JavaScript》/" style="font-size: 15px;">《Data Visualization with JavaScript》</a> <a href="/tags/前端/" style="font-size: 15px;">前端</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/ES6/" style="font-size: 15px;">ES6</a> <a href="/tags/网络/" style="font-size: 15px;">网络</a> <a href="/tags/Vue/" style="font-size: 15px;">Vue</a> <a href="/tags/前端框架/" style="font-size: 15px;">前端框架</a> <a href="/tags/算法/" style="font-size: 15px;">算法</a> <a href="/tags/可视化/" style="font-size: 15px;">可视化</a> <a href="/tags/HTML-CSS/" style="font-size: 15px;">HTML&CSS</a> <a href="/tags/动态规划/" style="font-size: 15px;">动态规划</a> <a href="/tags/测试/" style="font-size: 15px;">测试</a> <a href="/tags/软件工程思想/" style="font-size: 15px;">软件工程思想</a> <a href="/tags/DevTools/" style="font-size: 15px;">DevTools</a> <a href="/tags/git/" style="font-size: 15px;">git</a> <a href="/tags/读书笔记/" style="font-size: 15px;">读书笔记</a> <a href="/tags/《CSS揭秘》/" style="font-size: 15px;">《CSS揭秘》</a> <a href="/tags/机器学习/" style="font-size: 15px;">机器学习</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最近文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/08/17/《CSS揭秘》读书笔记（四）：文本/">《CSS揭秘》读书笔记（四）：文本</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/12/决策树/">决策树</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/08/Vue源码阅读——Vue实例挂载/">Vue源码阅读（三）—— Vue实例挂载</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/03/常见文本样式/">常见文本样式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/29/BigInt/">BigInt——JavaScript超出安全整数限制时的计算</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/26/《CSS揭秘》读书笔记（三）：视觉效果/">《CSS揭秘》读书笔记（三）：视觉效果</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/22/ES6-Promise/">ES6-Promise</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/18/Vue源码阅读——new Vue/">Vue源码阅读（二）—— new Vue</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/15/媒体查询/">媒体查询</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/10/Vue源码阅读——源码目录及构建/">Vue源码阅读（一）—— 源码目录及构建</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="https://github.com/tfcx-th" title="天赋创新的GitHub" target="_blank">天赋创新的GitHub</a><ul></ul><a href="mailto:tonghao_xjtu@qq.com" title="天赋创新的邮箱" target="_blank">天赋创新的邮箱</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer">Copyright © 2019 <a href="/." rel="nofollow">天赋创新的blog.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></div></div></div><a class="show" id="rocket" href="#top"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="//lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css"><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
