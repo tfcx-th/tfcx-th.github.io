@@ -40,7 +40,7 @@
 </li>
 </ul>
 <h2 id="缓存的处理步骤"><a href="#缓存的处理步骤" class="headerlink" title="缓存的处理步骤"></a>缓存的处理步骤</h2><p>对一条 HTTP GET 报文的基本缓存处理过程包括 7 个步骤</p>
-<p><img src="/2019/09/30/HTTP缓存/cacheget.png" alt="缓存请求流程"></p>
+<p><img src="/2019/09/30/HTTP%E7%BC%93%E5%AD%98/HTTP缓存/cacheget.png" alt="缓存请求流程"></p>
 <ol>
 <li><p><strong>接收</strong></p>
 <p>缓存从网络中读取抵达的请求报文</p>
@@ -70,7 +70,7 @@
 <ul>
 <li><p><strong>Expires</strong></p>
 <p>指定一个绝对的过期日期，如果过期日期已经过了，就说明文档已经不新鲜了</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">Expires</span>: <span class="selector-tag">Mon</span>, 30 <span class="selector-tag">Sep</span> 2019, 10<span class="selector-pseudo">:00</span><span class="selector-pseudo">:00</span> <span class="selector-tag">GMT</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Expires: Mon, <span class="number">30</span> Sep <span class="number">2019</span>, <span class="number">10</span>:<span class="number">00</span>:<span class="number">00</span> GMT</span><br></pre></td></tr></table></figure>
 </li>
 <li><p><strong>Cache-Control: max-age</strong></p>
 <p><code>max-age</code>定义了文档的最大使用期 —— 从第一次生成文档到文档不再新鲜、无法使用为止最大的合法生存时间（以秒为单位）</p>
